@@ -70,14 +70,14 @@ namespace Feature_Inspection
             textBox1.Validating += Validating;
             textBox1.Validated += Validated;
 
-            opNumberLabelValue.TextChanged += LabelValue_TextChanged;
+            //opNumberLabelValue.TextChanged += LabelValue_TextChanged;
             
 
         }
 
         private void Close_AlternateUI(object sender, FormClosingEventArgs e)
         {
-
+            Application.Exit();
         }
 
 
@@ -161,44 +161,52 @@ namespace Feature_Inspection
 
         private void getInfoFromOpKeyEntry(TextBox opkey)
         {
-            using (OdbcConnection conn = new OdbcConnection(connection_string))
+            try
             {
-                conn.Open();
-
-
-                opKeyGlobal = opkey.Text;
-
-
-                string query = "SELECT Job.Part_Number, Job_Operation.Job, Job_Operation.Operation_Service\n" +
-                               "FROM PRODUCTION.dbo.Job\n" +
-                               "INNER JOIN PRODUCTION.dbo.Job_Operation\n" +
-                               "ON Job.Job = Job_Operation.Job\n" +
-                               "WHERE Job_Operation.Job_Operation = '" + opkey.Text + "';";
-
-                OdbcCommand com = new OdbcCommand(query, conn);
-                OdbcDataReader reader = com.ExecuteReader();
-
-                if (reader.Read())
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
-                    partNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Part_Number"));
-                    jobNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Job"));
-                    opNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Operation_Service"));
-                    partNumberLabelValue.Visible = true;
-                    jobNumberLabelValue.Visible = true;
-                    opNumberLabelValue.Visible = true;
+                    conn.Open();
 
-                    partNumGlobal = partNumberLabelValue.Text;
-                    jobNumGlobal = jobNumberLabelValue.Text;
-                    opService = opNumberLabelValue.Text;
-                }
-                else
-                {
-                    partNumberLabelValue.Text = null;
-                    jobNumberLabelValue.Text = null;
-                    opNumberLabelValue.Text = null;
-                    opKeyGlobal = null;
+
+                    opKeyGlobal = opkey.Text;
+
+
+                    string query = "SELECT Job.Part_Number, Job_Operation.Job, Job_Operation.Operation_Service\n" +
+                                   "FROM PRODUCTION.dbo.Job\n" +
+                                   "INNER JOIN PRODUCTION.dbo.Job_Operation\n" +
+                                   "ON Job.Job = Job_Operation.Job\n" +
+                                   "WHERE Job_Operation.Job_Operation = '" + opkey.Text + "';";
+
+                    OdbcCommand com = new OdbcCommand(query, conn);
+                    OdbcDataReader reader = com.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        partNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Part_Number"));
+                        jobNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Job"));
+                        opNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Operation_Service"));
+                        partNumberLabelValue.Visible = true;
+                        jobNumberLabelValue.Visible = true;
+                        opNumberLabelValue.Visible = true;
+
+                        partNumGlobal = partNumberLabelValue.Text;
+                        jobNumGlobal = jobNumberLabelValue.Text;
+                        opService = opNumberLabelValue.Text;
+                    }
+                    else
+                    {
+                        partNumberLabelValue.Text = null;
+                        jobNumberLabelValue.Text = null;
+                        opNumberLabelValue.Text = null;
+                        opKeyGlobal = null;
+                    }
                 }
             }
+            catch
+            {
+                //MessageBox.Show("Please insert a valid OpKey ");
+            }
+            
         }
 
         private void queryInspectionKeyFromInspectionTable()
@@ -519,24 +527,53 @@ namespace Feature_Inspection
                 {
                     conn.Open();
                     string query = "UPDATE ATI_FeatureInspection.dbo.Position SET Measured_Value= " + Decimal.Parse(e.NewValue.ToString())
-                                   + " WHERE Feature_Key=" + dataListView1.AllColumns[0].GetValue(e.RowObject) + ";";
+                                   + " WHERE Feature_Key=" + dataListView1.AllColumns[0].GetValue(e.RowObject) + " AND Piece_ID = "+ dataListView1.AllColumns[1].GetValue(e.RowObject) +
+                                      "AND Place = "+dataListView1.AllColumns[2].GetValue(e.RowObject)+" ;";
 
                     OdbcCommand conncommand = new OdbcCommand(query, conn);
                     conncommand.ExecuteNonQuery();
-
+                    e.NewValue = Decimal.Parse(e.NewValue.ToString());
 
                 }
             }
             catch (FormatException err)
             {
                 MessageBox.Show("Please insert a number ", err.Message);
-                e.NewValue = Decimal.Parse(1.ToString());
+                e.NewValue = e.Value;
+                
+
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
+                {
+                    
+                    conn.Open();
+                    string query = "UPDATE ATI_FeatureInspection.dbo.Position SET Measured_Value= " + Decimal.Parse(e.Value.ToString())
+                                   + " WHERE Feature_Key=" + dataListView1.AllColumns[0].GetValue(e.RowObject) + " AND Piece_ID = " + dataListView1.AllColumns[1].GetValue(e.RowObject) +
+                                      "AND Place = " + dataListView1.AllColumns[2].GetValue(e.RowObject) + " ;";
+
+                    OdbcCommand conncommand = new OdbcCommand(query, conn);
+                    conncommand.ExecuteNonQuery();
+                    e.NewValue = Decimal.Parse(e.Value.ToString());
+
+                    dataListView1.Refresh();
+                    dataListView1.RefreshSelectedObjects();
+                }
             }
         }
 
         private void dataListView1_CellEditFinishing(object sender, BrightIdeasSoftware.CellEditEventArgs e)
         {
-
+            //Will check if the value in the measured value column is a number or not
+            try
+            {
+                e.NewValue = Decimal.Parse(e.NewValue.ToString());
+            }
+            catch
+            {
+                //If not use the last value that was being used
+                e.NewValue = Decimal.Parse(e.Value.ToString());
+            }
+            
+            
         }
 
         private void finishInspectionButton_Click(object sender, EventArgs e)
@@ -613,7 +650,7 @@ namespace Feature_Inspection
 
         private void Validating(object sender, CancelEventArgs e)
         {
-            this.Close();
+            
             if(formClosing)
             {
 
@@ -682,6 +719,7 @@ namespace Feature_Inspection
 
             result = MessageBox.Show(message, caption, button);
         }
+        /*
         private void LabelValue_TextChanged(object sender, EventArgs e)
         {
             //If invalid opkey
@@ -691,6 +729,7 @@ namespace Feature_Inspection
             }
             
         }
+        */
 
         private void AlternateUI_Click(object sender, EventArgs e)
         {
@@ -705,6 +744,11 @@ namespace Feature_Inspection
         private void dataListView1_AfterCreatingGroups(object sender, CreateGroupsEventArgs e)
         {
             dataListView1.AutoResizeColumns();
+            
+        }
+
+        private void dataListView1_CellEditFinished(object sender, CellEditEventArgs e)
+        {
             
         }
     }

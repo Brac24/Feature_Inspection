@@ -54,12 +54,8 @@ namespace Feature_Inspection
             else
                 formLoadQuery();
 
-
-
             submitClicked = false;
             dataGridView1.AutoResizeColumns();
-           
-
         }
 
         private void validateSelectedRows()
@@ -102,10 +98,8 @@ namespace Feature_Inspection
                             {
                                 emptyCell = true;
                                 colIndex = maxCols; //exit loop if empty cell in selected feature
-                            }
-                            
+                            }    
                         }
-
                     }
                     if (featureNumEmpty && colIndex >= maxCols)
                     {
@@ -120,22 +114,17 @@ namespace Feature_Inspection
                     }
                     else
                         selectedIndexes.Add(rowIndex);
-
-
                 }
 
                 rowIndex++;
             }
-
 
             //If there are no empty cells go ahead and add the new features to the 
             //Database as well as add all the selected rows to a List of DataGridViewRows
             if (!emptyCell && colIndex >= maxCols)
             {
                 foreach (int value in selectedIndexes)
-                {
-                    
-
+                {       
                     //If the row is not a newly created row then insert
                     if (!newIndexes.Contains(value))
                     {
@@ -155,33 +144,10 @@ namespace Feature_Inspection
                 foreach(int value in selectedIndexes)
                 {
                     insertToPositionsTable(Int32.Parse(dataGridView1.Rows[value].Cells[5].Value.ToString()), Int32.Parse(dataGridView1.Rows[value].Cells[6].Value.ToString()), Int32.Parse(dataGridView1.Rows[value].Cells[7].Value.ToString()));
-                    //selectedFeatureRows.Add(Int32.Parse(dataGridView1.Rows[value].Cells[7].Value.ToString())); //Gets the feature key from each selected row
                 }
-
-                /*
-                //Adding new features to the features table
-                foreach (int value in newIndexes)
-                {
-                    insertFeaturesToDatabase(value, true); //Will add new features to database. true --> Means this is a completely new feature so it is not a feature from any past inspections
-                }
-                */
-
-
-                
-
-
-                /*
-                foreach (int featureKey in selectedFeatureRows)
-                {
-                   
-                    insertToPositionsTable(Int32.Parse(dataGridView1.Rows[selectedFeatureRows.IndexOf(featureKey)].Cells[5].Value.ToString()), Int32.Parse(dataGridView1.Rows[selectedFeatureRows.IndexOf(featureKey)].Cells[6].Value.ToString()), featureKey);
-                }
-                */
-
             }
             else
                 MessageBox.Show(message);
-
 
             newIndexes.Clear();
             selectedIndexes.Clear();
@@ -367,7 +333,32 @@ namespace Feature_Inspection
         /// <param name="e"></param>
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            saveRowIndexOfFeatureThatChanged();     
+            Decimal value;
+            int nominalCol = 2;
+            int plusCol = 3;
+            int minusCol = 4;
+            
+            int countColCheck = 0;
+
+            if(e.ColumnIndex == nominalCol || e.ColumnIndex == plusCol || e.ColumnIndex == minusCol)
+            {
+                //Wait for form to draw the column names
+                if (e.RowIndex >= 0)
+                {
+                    try
+                    {
+                        value = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                        saveRowIndexOfFeatureThatChanged();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Please Enter a Numerical Value");
+                        dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Decimal.Parse(0.ToString());
+                    }
+                }
+                
+            }
+                
         }
 
         /// <summary>
@@ -385,6 +376,7 @@ namespace Feature_Inspection
                     featureRowsChanged.Add(currentRow);
                 }
             }
+            dataGridView1.RefreshEdit();
 
         }
 
@@ -403,8 +395,6 @@ namespace Feature_Inspection
             dataGridView1.Rows[e.RowIndex].Cells[5].Value = 1;    //Sets places value to 1 for each row added
             dataGridView1.Rows[e.RowIndex].Cells[6].Value = 1;    //Sets Pieces value to 1 for each row added
         }
-
-
 
         /// <summary>
         /// Checks the Datagridview Control in UserInputForm for an empty cell
@@ -511,6 +501,7 @@ namespace Feature_Inspection
             }
             
         }
+
         private void insertFeaturesToDatabase(int row, bool notPastFeature)
         {
             
@@ -583,7 +574,6 @@ namespace Feature_Inspection
             }
         }
 
-
         //So far this only deletes the selected features
         //Wanted to make this function to be able to find which
         //rows were selected so I would need to return a list of row indexes
@@ -613,7 +603,6 @@ namespace Feature_Inspection
 
             return rowsSelected;
         }
-
 
         private void loadCurrentInspectionFeatures()
         {
@@ -655,7 +644,6 @@ namespace Feature_Inspection
                 dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1); //Will remove the last row that was created
             }
         }
-
 
         private void formLoadQuery()
         {
@@ -712,8 +700,6 @@ namespace Feature_Inspection
             }
             
         }
-
-        
 
         public bool getSubmitClicked()
         {

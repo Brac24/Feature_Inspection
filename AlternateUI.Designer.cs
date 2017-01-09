@@ -275,6 +275,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataListView1.BackColor = System.Drawing.SystemColors.Info;
             this.dataListView1.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClickAlways;
+            this.dataListView1.CellEditEnterChangesRows = true;
             this.dataListView1.CellEditUseWholeCell = false;
             this.tableLayoutPanel1.SetColumnSpan(this.dataListView1, 4);
             this.dataListView1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -289,6 +290,7 @@
             this.dataListView1.View = System.Windows.Forms.View.Details;
             this.dataListView1.AfterCreatingGroups += new System.EventHandler<BrightIdeasSoftware.CreateGroupsEventArgs>(this.dataListView1_AfterCreatingGroups);
             this.dataListView1.BeforeCreatingGroups += new System.EventHandler<BrightIdeasSoftware.CreateGroupsEventArgs>(this.dataListView1_BeforeCreatingGroups);
+            this.dataListView1.CellEditFinished += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditFinished);
             this.dataListView1.CellEditFinishing += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditFinishing);
             this.dataListView1.CellEditValidating += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditValidating);
             this.dataListView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.dataListView1_ColumnWidthChanged);
