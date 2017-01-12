@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.Odbc;
 using BrightIdeasSoftware;
 /*ALL TABLES REFER TO THE ATI_FeatureInspection Database */
-
+//THIS IS NOT THE MASTER
 namespace Feature_Inspection
 {
 
