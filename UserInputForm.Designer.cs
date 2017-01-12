@@ -51,6 +51,7 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteSelectedButton = new System.Windows.Forms.Button();
+            this.deselectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +107,7 @@
             // 
             // newFeatureButton
             // 
-            this.newFeatureButton.Location = new System.Drawing.Point(12, 253);
+            this.newFeatureButton.Location = new System.Drawing.Point(84, 254);
             this.newFeatureButton.Name = "newFeatureButton";
             this.newFeatureButton.Size = new System.Drawing.Size(85, 24);
             this.newFeatureButton.TabIndex = 51;
@@ -193,7 +194,7 @@
             // 
             // saveFeaturesButton
             // 
-            this.saveFeaturesButton.Location = new System.Drawing.Point(211, 254);
+            this.saveFeaturesButton.Location = new System.Drawing.Point(342, 254);
             this.saveFeaturesButton.Name = "saveFeaturesButton";
             this.saveFeaturesButton.Size = new System.Drawing.Size(86, 23);
             this.saveFeaturesButton.TabIndex = 72;
@@ -226,7 +227,7 @@
             // 
             // deleteSelectedButton
             // 
-            this.deleteSelectedButton.Location = new System.Drawing.Point(103, 254);
+            this.deleteSelectedButton.Location = new System.Drawing.Point(175, 254);
             this.deleteSelectedButton.Name = "deleteSelectedButton";
             this.deleteSelectedButton.Size = new System.Drawing.Size(102, 23);
             this.deleteSelectedButton.TabIndex = 73;
@@ -234,11 +235,22 @@
             this.deleteSelectedButton.UseVisualStyleBackColor = true;
             this.deleteSelectedButton.Click += new System.EventHandler(this.deleteSelectedButton_Click);
             // 
+            // deselectButton
+            // 
+            this.deselectButton.Location = new System.Drawing.Point(12, 255);
+            this.deselectButton.Name = "deselectButton";
+            this.deselectButton.Size = new System.Drawing.Size(57, 37);
+            this.deselectButton.TabIndex = 74;
+            this.deselectButton.Text = "Deselect All";
+            this.deselectButton.UseVisualStyleBackColor = true;
+            this.deselectButton.Click += new System.EventHandler(this.deselectButton_Click);
+            // 
             // UserInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 387);
+            this.Controls.Add(this.deselectButton);
             this.Controls.Add(this.deleteSelectedButton);
             this.Controls.Add(this.saveFeaturesButton);
             this.Controls.Add(this.dataGridView1);
@@ -280,5 +292,6 @@
         private DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn placesDataGridColumn;
         private DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn Pieces;
         private System.Windows.Forms.DataGridViewTextBoxColumn featureKey;
+        private System.Windows.Forms.Button deselectButton;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
+using BrightIdeasSoftware;
 
 namespace Feature_Inspection
 {
@@ -20,26 +21,27 @@ namespace Feature_Inspection
         public static bool submitClicked = false;
         int currentRow;
         bool currentInspection;
-        
+
 
         AlternateUI op = new AlternateUI();
         List<FeatureInfo> fInfo = new List<FeatureInfo>();
         public static List<int> selectedFeatureRows = new List<int>();
-      
+
 
         List<int> featureRowsChanged = new List<int>();
-        
+
         public UserInputForm()
         {
             InitializeComponent();
-            
+
         }
         private void UserInputForm_Load(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add();
-            
+            saveFeaturesButton.Hide(); //Hide the save button
+
             newFeatureText = newFeatureButton.Text;
-            
+
             OpService_TextBox.Text = op.getOpService();
             partNoTextBox.Text = op.getPartNo();
 
@@ -47,7 +49,7 @@ namespace Feature_Inspection
 
             //If there is another inspection that means there are features 
             //That relate to the opkey at hand we need to load those
-            if(currentInspection)
+            if (currentInspection)
             {
                 loadCurrentInspectionFeatures();
             }
@@ -56,6 +58,7 @@ namespace Feature_Inspection
 
             submitClicked = false;
             dataGridView1.AutoResizeColumns();
+            disableFeaturesAlreadyBeingMeasured();
         }
 
         private void validateSelectedRows()
@@ -66,8 +69,10 @@ namespace Feature_Inspection
             int colIndex = 0;
             bool emptyCell = false;
             bool selected;
+            int inheritedFeatures = 0;
 
             List<int> newIndexes = new List<int>();
+            List<int> oldRows = new List<int>();
             List<int> selectedIndexes = new List<int>();
 
             bool featureNumEmpty = false;
@@ -89,7 +94,7 @@ namespace Feature_Inspection
                         if (dataGridView1.Rows[rowIndex].Cells[colIndex].Value == null)
                         {
                             //If there is no feature number because new feature
-                            if(colIndex == 7)
+                            if (colIndex == 7)
                             {
                                 featureNumEmpty = true;
                             }
@@ -98,7 +103,7 @@ namespace Feature_Inspection
                             {
                                 emptyCell = true;
                                 colIndex = maxCols; //exit loop if empty cell in selected feature
-                            }    
+                            }
                         }
                     }
                     if (featureNumEmpty && colIndex >= maxCols)
@@ -107,24 +112,34 @@ namespace Feature_Inspection
                         //Therefore grab those indeces where the new features have been created
                         if (dataGridView1.Rows[rowIndex].Cells[maxCols].Value == null)
                         {
-                            newIndexes.Add(rowIndex);
+                            newIndexes.Add(rowIndex); //Any newly added features
                             selectedIndexes.Add(rowIndex);
+
                         }
 
                     }
                     else
-                        selectedIndexes.Add(rowIndex);
+                    {
+                        selectedIndexes.Add(rowIndex); //Indexes of related features from other inspections being used for this new inspection    
+                        oldRows.Add(rowIndex);
+                    }
+
                 }
 
                 rowIndex++;
             }
 
+            if (selectedIndexes.Count == 0)
+            {
+                MessageBox.Show("Please Select Features to add or Exit out");
+                submitClicked = false;
+            }
             //If there are no empty cells go ahead and add the new features to the 
             //Database as well as add all the selected rows to a List of DataGridViewRows
-            if (!emptyCell && colIndex >= maxCols)
+            else if (!emptyCell && colIndex >= maxCols)
             {
                 foreach (int value in selectedIndexes)
-                {       
+                {
                     //If the row is not a newly created row then insert
                     if (!newIndexes.Contains(value))
                     {
@@ -135,19 +150,24 @@ namespace Feature_Inspection
 
                 }
 
+
                 //Update the form with the new features so the Feature No. will be present
-                if (newIndexes.Count > 0)
+                if (newIndexes.Count > 0 || selectedIndexes.Count > 0)
                 {
-                    updateFeaturesInGridView(selectedIndexes);//Refresh table with the new features
+                    updateFeaturesInGridView(newIndexes, oldRows);//Refresh table with the new features
                 }
 
-                foreach(int value in selectedIndexes)
+                foreach (int value in selectedIndexes)
                 {
                     insertToPositionsTable(Int32.Parse(dataGridView1.Rows[value].Cells[5].Value.ToString()), Int32.Parse(dataGridView1.Rows[value].Cells[6].Value.ToString()), Int32.Parse(dataGridView1.Rows[value].Cells[7].Value.ToString()));
                 }
             }
             else
+            {
                 MessageBox.Show(message);
+                submitClicked = false;
+            }
+
 
             newIndexes.Clear();
             selectedIndexes.Clear();
@@ -155,62 +175,193 @@ namespace Feature_Inspection
 
         }
 
-        private void updateFeaturesInGridView(List<int> newRows)
+        private List<int> listOfFeaturesThatExistForCurrentInspection()
         {
-            
-            int col = 1;
-            string query;
+            List<int> currentFeatures = new List<int>();
 
             using (OdbcConnection conn = new OdbcConnection(connection_string))
             {
                 conn.Open();
-                int inspecKey = op.getInspectionKey();
 
+                string query = "SELECT DISTINCT Feature_Key FROM ATI_FeatureInspection.dbo.Position " +
+                               "WHERE Feature_Key IN (SELECT Feature_Key FROM ATI_FeatureInspection.dbo.Features " +
+                               "WHERE Inspection_Key_FK = " + op.getInspectionKey() + "); ";
+
+                OdbcCommand comm = new OdbcCommand(query, conn);
+                OdbcDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    currentFeatures.Add(reader.GetInt32(reader.GetOrdinal("Feature_Key")));
+                }
+            }
+
+            return currentFeatures;
+        }
+
+        /// <summary>
+        /// This function should disable any features from being edited and reinserted to the database
+        /// This should simply freeze those features which can't be edited anymore
+        /// </summary>
+        private void disableFeaturesAlreadyBeingMeasured()
+        {
+            List<int> currentFeaturesBeingMeasured = listOfFeaturesThatExistForCurrentInspection();
+
+            foreach (int value in currentFeaturesBeingMeasured)
+            {
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    if ((int)dataGridView1.Rows[i].Cells[7].Value == value)
+                    {
+                        dataGridView1.Rows[i].ReadOnly = true; //Prevent features already being measured from being edited
+                        dataGridView1.Rows[i].Cells[0].Value = false; //Uncheck these features to keep them from being added again to the same inspection
+                    }
+                }
+            }
+        }
+
+        private void updateFeaturesInGridView(List<int> newRows, List<int> oldRows)
+        {
+            dataGridView1.Refresh();
+            int col = 1;
+            string query;
+            int inheritedFeature;
+
+            foreach (int index in oldRows)
+            {
+                inheritedFeature = (int)dataGridView1.Rows[index].Cells[7].Value;
 
                 query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
-                    "WHERE Inspection_Key_FK = " + inspecKey + ";\n";
+                    "WHERE InheritedFromFeature = " + inheritedFeature + ";";
 
-                OdbcCommand com = new OdbcCommand(query, conn);
-                OdbcDataReader reader = com.ExecuteReader();
-
-                foreach(int row in newRows)
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
+                    conn.Open();
+
+                    OdbcCommand comm = new OdbcCommand(query, conn);
+                    OdbcDataReader reader = comm.ExecuteReader();
+
                     if (reader.Read())
                     {
-
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
+                        dataGridView1.Rows[index].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
                         col++;
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Nominal"));
+                        dataGridView1.Rows[index].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Nominal"));
                         col++;
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Plus_Tolerance"));
+                        dataGridView1.Rows[index].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Plus_Tolerance"));
                         col++;
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Minus_Tolerance"));
+                        dataGridView1.Rows[index].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Minus_Tolerance"));
                         col++;
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Places"));
+                        dataGridView1.Rows[index].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Places"));
                         col++;
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Pieces"));
+                        dataGridView1.Rows[index].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Pieces"));
                         col++;
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Feature_Key"));
+                        dataGridView1.Rows[index].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Feature_Key"));
                         col = 1;
                         dataGridView1.Rows.Add(); //This will add an extra row after all rows are place in the table
                     }
                 }
-                
+               // dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1); //Will remove the last row that was created
             }
-                
+            
+
+
+
+            try
+            {
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
+                {
+                    conn.Open();
+                    int inspecKey = op.getInspectionKey();
+
+
+                    query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
+                        "WHERE Feature_Key NOT IN (" + string.Join(",", listOfFeaturesThatExistForCurrentInspection()) + ") AND Inspection_Key_FK = " + op.getInspectionKey() + ";\n";
+
+                    OdbcCommand com = new OdbcCommand(query, conn);
+                    OdbcDataReader reader = com.ExecuteReader();
+
+                    foreach (int row in newRows)
+                    {
+                        if (reader.Read())
+                        {
+
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Nominal"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Plus_Tolerance"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Minus_Tolerance"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Places"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Pieces"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Feature_Key"));
+                            col = 1;
+                            dataGridView1.Rows.Add(); //This will add an extra row after all rows are place in the table
+                        }
+                    }
+                }
                 dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1); //Will remove the last row that was created
             }
 
+            catch
+            {
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
+                {
+                    conn.Open();
+
+                    query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
+                        "WHERE Inspection_Key_FK = " + op.getInspectionKey() + " AND InheritedFromFeature IS NULL;";
+
+                    OdbcCommand com = new OdbcCommand(query, conn);
+                    OdbcDataReader reader = com.ExecuteReader();
+
+                    foreach (int row in newRows)
+                    {
+                        if (reader.Read())
+                        {
+
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Nominal"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Plus_Tolerance"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Minus_Tolerance"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Places"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Pieces"));
+                            col++;
+                            dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Feature_Key"));
+                            col = 1;
+                            dataGridView1.Rows.Add(); //This will add an extra row after all rows are place in the table
+                        }
+                    }
+                }
+                dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1); //Will remove the last row that was created
+            }
+            
+   
+            
+        }
+
         private void reInsertOldFeaturesButNewInspection()
         {
-           // string query = 
+            // string query = 
         }
 
         private void mainSubmit_button_Click(object sender, EventArgs e)
         {
             submitClicked = true;
             validateSelectedRows();
-            this.Close();     
+            if (submitClicked)
+            {
+                this.Close();
+            }
+
         }
 
         /// <summary>
@@ -242,7 +393,7 @@ namespace Feature_Inspection
                     {
                         inspectionCount++;
                     }
-                    
+
                 }
 
                 //Lets us know if there are at least 2 opkeys with the same part num and operation number
@@ -273,12 +424,12 @@ namespace Feature_Inspection
                 conn.Open();
 
                 string query = "SELECT Op_Key FROM ATI_FeatureInspection.dbo.Operation " +
-                               "WHERE Part_Number = (SELECT DISTINCT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = "+ opkey + ") AND Operation_Number = (SELECT DISTINCT Operation_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = "+ opkey + "); ";
+                               "WHERE Part_Number = (SELECT DISTINCT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = " + opkey + ") AND Operation_Number = (SELECT DISTINCT Operation_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = " + opkey + "); ";
 
                 OdbcCommand com = new OdbcCommand(query, conn);
                 OdbcDataReader reader = com.ExecuteReader();
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     similarOpKeys.Add(reader.GetInt32(reader.GetOrdinal("Op_Key")));
                 }
@@ -303,7 +454,7 @@ namespace Feature_Inspection
                 OdbcCommand com = new OdbcCommand(query, conn);
                 OdbcDataReader reader = com.ExecuteReader();
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     similarInspecKeys.Add(reader.GetInt32(reader.GetOrdinal("Inspection_Key")));
                 }
@@ -318,7 +469,7 @@ namespace Feature_Inspection
         private void newFeatureButton_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add();
-                         
+
         }
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -337,10 +488,10 @@ namespace Feature_Inspection
             int nominalCol = 2;
             int plusCol = 3;
             int minusCol = 4;
-            
+
             int countColCheck = 0;
 
-            if(e.ColumnIndex == nominalCol || e.ColumnIndex == plusCol || e.ColumnIndex == minusCol)
+            if (e.ColumnIndex == nominalCol || e.ColumnIndex == plusCol || e.ColumnIndex == minusCol)
             {
                 //Wait for form to draw the column names
                 if (e.RowIndex >= 0)
@@ -356,9 +507,9 @@ namespace Feature_Inspection
                         dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Decimal.Parse(0.ToString());
                     }
                 }
-                
+
             }
-                
+
         }
 
         /// <summary>
@@ -478,7 +629,7 @@ namespace Feature_Inspection
         {
             int place;
             int piece;
-            for(int j=0; j<pieces; j++)
+            for (int j = 0; j < pieces; j++)
             {
                 piece = j + 1;
 
@@ -499,12 +650,12 @@ namespace Feature_Inspection
                     }
                 }
             }
-            
+
         }
 
         private void insertFeaturesToDatabase(int row, bool notPastFeature)
         {
-            
+
             string query;
 
             //Adding new features
@@ -513,7 +664,7 @@ namespace Feature_Inspection
                 using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
                     conn.Open();
-                    
+
 
                     //Insert new Data from DataGridView Table to the Features table in ATI_Feature Inspectio Database
                     query = "INSERT INTO ATI_FeatureInspection.dbo.Features (Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces, Inspection_Key_FK)\n" +
@@ -543,9 +694,9 @@ namespace Feature_Inspection
                     connCommand.ExecuteNonQuery();
                 }
             }
-                
-            }
-        
+
+        }
+
         private void dataGridView1_RowEnter_1(object sender, DataGridViewCellEventArgs e)
         {
             currentRow = e.RowIndex;
@@ -610,7 +761,7 @@ namespace Feature_Inspection
             int col = 1;
 
             string query;
-            
+
             using (OdbcConnection conn = new OdbcConnection(connection_string))
             {
                 conn.Open();
@@ -621,7 +772,7 @@ namespace Feature_Inspection
                 OdbcCommand comm = new OdbcCommand(query, conn);
                 OdbcDataReader reader = comm.ExecuteReader();
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     dataGridView1.Rows[row].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
                     col++;
@@ -647,7 +798,7 @@ namespace Feature_Inspection
 
         private void formLoadQuery()
         {
-            
+
             List<int> opKeys = new List<int>();
             List<int> inspecKeys = new List<int>();
             int row = 0;
@@ -664,17 +815,17 @@ namespace Feature_Inspection
             {
                 conn.Open();
 
-                foreach(int value in inspecKeys)
+                foreach (int value in inspecKeys)
                 {
                     //This query is for new inspections only
                     query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
-                        "WHERE Inspection_Key_FK = "+value+" AND InheritedFromFeature IS NULL;\n";
+                        "WHERE Inspection_Key_FK = " + value + " AND InheritedFromFeature IS NULL;\n";
 
-                    
+
                     OdbcCommand com = new OdbcCommand(query, conn);
                     OdbcDataReader reader = com.ExecuteReader();
 
-                    while(reader.Read())
+                    while (reader.Read())
                     {
 
                         dataGridView1.Rows[row].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
@@ -695,10 +846,10 @@ namespace Feature_Inspection
                         dataGridView1.Rows.Add(); //This will add an extra row after all rows are place in the table
                     }
                 }
-                dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count-1); //Will remove the last row that was created
-                
+                dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1); //Will remove the last row that was created
+
             }
-            
+
         }
 
         public bool getSubmitClicked()
@@ -716,5 +867,12 @@ namespace Feature_Inspection
             return selectedFeatureRows.Count;
         }
 
+        private void deselectButton_Click(object sender, EventArgs e)
+        {
+            for(int i=0; i<dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Cells[0].Value = false;
+            }
+        }
     }
 }

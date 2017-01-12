@@ -42,11 +42,12 @@
             this.opNumberLabelValue = new System.Windows.Forms.Label();
             this.opNumberLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.statusLabelValue = new System.Windows.Forms.Label();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.addFeatureButton = new System.Windows.Forms.Button();
-            this.newInspecButton = new System.Windows.Forms.Button();
+            this.finishInspectionButton = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataListView1 = new BrightIdeasSoftware.DataListView();
-            this.finishInspectionButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,7 +74,6 @@
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.dataListView1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.finishInspectionButton, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -83,9 +83,9 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.51701F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.51701F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.96599F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(886, 455);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.45977F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.298851F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(895, 459);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -226,16 +226,36 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Controls.Add(this.statusLabelValue);
+            this.panel5.Controls.Add(this.statusLabel);
             this.panel5.Controls.Add(this.addFeatureButton);
-            this.panel5.Controls.Add(this.newInspecButton);
+            this.panel5.Controls.Add(this.finishInspectionButton);
             this.panel5.Location = new System.Drawing.Point(3, 114);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(143, 140);
+            this.panel5.Size = new System.Drawing.Size(143, 141);
             this.panel5.TabIndex = 4;
+            // 
+            // statusLabelValue
+            // 
+            this.statusLabelValue.AutoSize = true;
+            this.statusLabelValue.Location = new System.Drawing.Point(48, 0);
+            this.statusLabelValue.Name = "statusLabelValue";
+            this.statusLabelValue.Size = new System.Drawing.Size(59, 13);
+            this.statusLabelValue.TabIndex = 13;
+            this.statusLabelValue.Text = "Incomplete";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(3, 0);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(40, 13);
+            this.statusLabel.TabIndex = 12;
+            this.statusLabel.Text = "Status:";
             // 
             // addFeatureButton
             // 
-            this.addFeatureButton.Location = new System.Drawing.Point(3, 29);
+            this.addFeatureButton.Location = new System.Drawing.Point(3, 27);
             this.addFeatureButton.Name = "addFeatureButton";
             this.addFeatureButton.Size = new System.Drawing.Size(75, 23);
             this.addFeatureButton.TabIndex = 8;
@@ -243,28 +263,24 @@
             this.addFeatureButton.UseVisualStyleBackColor = true;
             this.addFeatureButton.Click += new System.EventHandler(this.addFeatureButton_Click);
             // 
-            // newInspecButton
+            // finishInspectionButton
             // 
-            this.newInspecButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.newInspecButton.AutoSize = true;
-            this.newInspecButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.newInspecButton.Location = new System.Drawing.Point(3, 0);
-            this.newInspecButton.Name = "newInspecButton";
-            this.newInspecButton.Size = new System.Drawing.Size(100, 23);
-            this.newInspecButton.TabIndex = 7;
-            this.newInspecButton.Text = "Create Inspection";
-            this.newInspecButton.UseVisualStyleBackColor = true;
-            this.newInspecButton.Click += new System.EventHandler(this.newInspecButton_Click);
+            this.finishInspectionButton.Location = new System.Drawing.Point(3, 65);
+            this.finishInspectionButton.Name = "finishInspectionButton";
+            this.finishInspectionButton.Size = new System.Drawing.Size(99, 23);
+            this.finishInspectionButton.TabIndex = 11;
+            this.finishInspectionButton.Text = "Finish Inspection";
+            this.finishInspectionButton.UseVisualStyleBackColor = true;
+            this.finishInspectionButton.Click += new System.EventHandler(this.finishInspectionButton_Click);
             // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.Location = new System.Drawing.Point(3, 260);
+            this.panel6.Location = new System.Drawing.Point(3, 261);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(143, 140);
+            this.panel6.Size = new System.Drawing.Size(143, 186);
             this.panel6.TabIndex = 5;
             // 
             // dataListView1
@@ -284,7 +300,7 @@
             this.dataListView1.Location = new System.Drawing.Point(152, 3);
             this.dataListView1.Name = "dataListView1";
             this.tableLayoutPanel1.SetRowSpan(this.dataListView1, 6);
-            this.dataListView1.Size = new System.Drawing.Size(618, 397);
+            this.dataListView1.Size = new System.Drawing.Size(625, 444);
             this.dataListView1.TabIndex = 10;
             this.dataListView1.UseCompatibleStateImageBehavior = false;
             this.dataListView1.View = System.Windows.Forms.View.Details;
@@ -295,21 +311,11 @@
             this.dataListView1.CellEditValidating += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditValidating);
             this.dataListView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.dataListView1_ColumnWidthChanged);
             // 
-            // finishInspectionButton
-            // 
-            this.finishInspectionButton.Location = new System.Drawing.Point(152, 406);
-            this.finishInspectionButton.Name = "finishInspectionButton";
-            this.finishInspectionButton.Size = new System.Drawing.Size(99, 23);
-            this.finishInspectionButton.TabIndex = 11;
-            this.finishInspectionButton.Text = "Finish Inspection";
-            this.finishInspectionButton.UseVisualStyleBackColor = true;
-            this.finishInspectionButton.Click += new System.EventHandler(this.finishInspectionButton_Click);
-            // 
             // AlternateUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 455);
+            this.ClientSize = new System.Drawing.Size(895, 459);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(880, 416);
             this.Name = "AlternateUI";
@@ -352,9 +358,10 @@
         private System.Windows.Forms.Label jobNumberLabel;
         private System.Windows.Forms.Label opNumberLabelValue;
         private System.Windows.Forms.Label opNumberLabel;
-        private System.Windows.Forms.Button newInspecButton;
         private System.Windows.Forms.Button addFeatureButton;
         private BrightIdeasSoftware.DataListView dataListView1;
         private System.Windows.Forms.Button finishInspectionButton;
+        private System.Windows.Forms.Label statusLabelValue;
+        private System.Windows.Forms.Label statusLabel;
     }
 }
