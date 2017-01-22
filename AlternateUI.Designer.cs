@@ -60,7 +60,7 @@
             // 
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.82988F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.50713F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.79955F));
@@ -76,16 +76,17 @@
             this.tableLayoutPanel1.Controls.Add(this.finishInspectionButton, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.51701F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.51701F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.96599F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(886, 455);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1329, 700);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -98,9 +99,10 @@
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.opKeyLabel);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(143, 28);
+            this.panel1.Size = new System.Drawing.Size(216, 42);
             this.panel1.TabIndex = 0;
             // 
             // opKeyLabel
@@ -109,9 +111,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.opKeyLabel.AutoSize = true;
-            this.opKeyLabel.Location = new System.Drawing.Point(3, 6);
+            this.opKeyLabel.Location = new System.Drawing.Point(4, 9);
+            this.opKeyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.opKeyLabel.Name = "opKeyLabel";
-            this.opKeyLabel.Size = new System.Drawing.Size(42, 13);
+            this.opKeyLabel.Size = new System.Drawing.Size(60, 20);
             this.opKeyLabel.TabIndex = 1;
             this.opKeyLabel.Text = "OpKey:";
             // 
@@ -120,9 +123,10 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(51, 3);
+            this.textBox1.Location = new System.Drawing.Point(76, 5);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(92, 20);
+            this.textBox1.Size = new System.Drawing.Size(138, 26);
             this.textBox1.TabIndex = 0;
             // 
             // panel2
@@ -134,26 +138,29 @@
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.Controls.Add(this.partNumberLabelValue);
             this.panel2.Controls.Add(this.partNumberLabel);
-            this.panel2.Location = new System.Drawing.Point(3, 37);
+            this.panel2.Location = new System.Drawing.Point(4, 57);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(143, 22);
+            this.panel2.Size = new System.Drawing.Size(216, 33);
             this.panel2.TabIndex = 1;
             // 
             // partNumberLabelValue
             // 
             this.partNumberLabelValue.AutoSize = true;
-            this.partNumberLabelValue.Location = new System.Drawing.Point(48, 0);
+            this.partNumberLabelValue.Location = new System.Drawing.Point(72, 0);
+            this.partNumberLabelValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.partNumberLabelValue.Name = "partNumberLabelValue";
-            this.partNumberLabelValue.Size = new System.Drawing.Size(43, 13);
+            this.partNumberLabelValue.Size = new System.Drawing.Size(63, 20);
             this.partNumberLabelValue.TabIndex = 1;
             this.partNumberLabelValue.Text = "374823";
             // 
             // partNumberLabel
             // 
             this.partNumberLabel.AutoSize = true;
-            this.partNumberLabel.Location = new System.Drawing.Point(3, 0);
+            this.partNumberLabel.Location = new System.Drawing.Point(4, 0);
+            this.partNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.partNumberLabel.Name = "partNumberLabel";
-            this.partNumberLabel.Size = new System.Drawing.Size(30, 13);
+            this.partNumberLabel.Size = new System.Drawing.Size(38, 20);
             this.partNumberLabel.TabIndex = 0;
             this.partNumberLabel.Text = "P/N:";
             // 
@@ -166,26 +173,29 @@
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.Controls.Add(this.jobNumberLabelValue);
             this.panel3.Controls.Add(this.jobNumberLabel);
-            this.panel3.Location = new System.Drawing.Point(3, 65);
+            this.panel3.Location = new System.Drawing.Point(4, 100);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(143, 20);
+            this.panel3.Size = new System.Drawing.Size(216, 30);
             this.panel3.TabIndex = 2;
             // 
             // jobNumberLabelValue
             // 
             this.jobNumberLabelValue.AutoSize = true;
-            this.jobNumberLabelValue.Location = new System.Drawing.Point(48, 0);
+            this.jobNumberLabelValue.Location = new System.Drawing.Point(72, 0);
+            this.jobNumberLabelValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobNumberLabelValue.Name = "jobNumberLabelValue";
-            this.jobNumberLabelValue.Size = new System.Drawing.Size(51, 13);
+            this.jobNumberLabelValue.Size = new System.Drawing.Size(75, 20);
             this.jobNumberLabelValue.TabIndex = 1;
             this.jobNumberLabelValue.Text = "03484R1";
             // 
             // jobNumberLabel
             // 
             this.jobNumberLabel.AutoSize = true;
-            this.jobNumberLabel.Location = new System.Drawing.Point(3, 0);
+            this.jobNumberLabel.Location = new System.Drawing.Point(4, 0);
+            this.jobNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobNumberLabel.Name = "jobNumberLabel";
-            this.jobNumberLabel.Size = new System.Drawing.Size(27, 13);
+            this.jobNumberLabel.Size = new System.Drawing.Size(39, 20);
             this.jobNumberLabel.TabIndex = 0;
             this.jobNumberLabel.Text = "Job:";
             // 
@@ -198,26 +208,29 @@
             this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel4.Controls.Add(this.opNumberLabelValue);
             this.panel4.Controls.Add(this.opNumberLabel);
-            this.panel4.Location = new System.Drawing.Point(3, 91);
+            this.panel4.Location = new System.Drawing.Point(4, 140);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(143, 17);
+            this.panel4.Size = new System.Drawing.Size(216, 25);
             this.panel4.TabIndex = 3;
             // 
             // opNumberLabelValue
             // 
             this.opNumberLabelValue.AutoSize = true;
-            this.opNumberLabelValue.Location = new System.Drawing.Point(48, 0);
+            this.opNumberLabelValue.Location = new System.Drawing.Point(72, 0);
+            this.opNumberLabelValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.opNumberLabelValue.Name = "opNumberLabelValue";
-            this.opNumberLabelValue.Size = new System.Drawing.Size(19, 13);
+            this.opNumberLabelValue.Size = new System.Drawing.Size(27, 20);
             this.opNumberLabelValue.TabIndex = 1;
             this.opNumberLabelValue.Text = "10";
             // 
             // opNumberLabel
             // 
             this.opNumberLabel.AutoSize = true;
-            this.opNumberLabel.Location = new System.Drawing.Point(3, 0);
+            this.opNumberLabel.Location = new System.Drawing.Point(4, 0);
+            this.opNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.opNumberLabel.Name = "opNumberLabel";
-            this.opNumberLabel.Size = new System.Drawing.Size(24, 13);
+            this.opNumberLabel.Size = new System.Drawing.Size(34, 20);
             this.opNumberLabel.TabIndex = 0;
             this.opNumberLabel.Text = "Op:";
             // 
@@ -228,16 +241,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.addFeatureButton);
             this.panel5.Controls.Add(this.newInspecButton);
-            this.panel5.Location = new System.Drawing.Point(3, 114);
+            this.panel5.Location = new System.Drawing.Point(4, 175);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(143, 140);
+            this.panel5.Size = new System.Drawing.Size(216, 215);
             this.panel5.TabIndex = 4;
             // 
             // addFeatureButton
             // 
-            this.addFeatureButton.Location = new System.Drawing.Point(3, 29);
+            this.addFeatureButton.Location = new System.Drawing.Point(4, 45);
+            this.addFeatureButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addFeatureButton.Name = "addFeatureButton";
-            this.addFeatureButton.Size = new System.Drawing.Size(75, 23);
+            this.addFeatureButton.Size = new System.Drawing.Size(112, 35);
             this.addFeatureButton.TabIndex = 8;
             this.addFeatureButton.Text = "Add Feature";
             this.addFeatureButton.UseVisualStyleBackColor = true;
@@ -249,9 +264,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.newInspecButton.AutoSize = true;
             this.newInspecButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.newInspecButton.Location = new System.Drawing.Point(3, 0);
+            this.newInspecButton.Location = new System.Drawing.Point(4, 0);
+            this.newInspecButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.newInspecButton.Name = "newInspecButton";
-            this.newInspecButton.Size = new System.Drawing.Size(100, 23);
+            this.newInspecButton.Size = new System.Drawing.Size(145, 30);
             this.newInspecButton.TabIndex = 7;
             this.newInspecButton.Text = "Create Inspection";
             this.newInspecButton.UseVisualStyleBackColor = true;
@@ -262,9 +278,10 @@
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.Location = new System.Drawing.Point(3, 260);
+            this.panel6.Location = new System.Drawing.Point(4, 400);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(143, 140);
+            this.panel6.Size = new System.Drawing.Size(216, 215);
             this.panel6.TabIndex = 5;
             // 
             // dataListView1
@@ -280,10 +297,11 @@
             this.dataListView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataListView1.DataSource = null;
             this.dataListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.dataListView1.Location = new System.Drawing.Point(152, 3);
+            this.dataListView1.Location = new System.Drawing.Point(228, 5);
+            this.dataListView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataListView1.Name = "dataListView1";
             this.tableLayoutPanel1.SetRowSpan(this.dataListView1, 6);
-            this.dataListView1.Size = new System.Drawing.Size(618, 397);
+            this.dataListView1.Size = new System.Drawing.Size(929, 610);
             this.dataListView1.TabIndex = 10;
             this.dataListView1.UseCompatibleStateImageBehavior = false;
             this.dataListView1.View = System.Windows.Forms.View.Details;
@@ -295,9 +313,10 @@
             // 
             // finishInspectionButton
             // 
-            this.finishInspectionButton.Location = new System.Drawing.Point(152, 406);
+            this.finishInspectionButton.Location = new System.Drawing.Point(228, 625);
+            this.finishInspectionButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.finishInspectionButton.Name = "finishInspectionButton";
-            this.finishInspectionButton.Size = new System.Drawing.Size(99, 23);
+            this.finishInspectionButton.Size = new System.Drawing.Size(148, 35);
             this.finishInspectionButton.TabIndex = 11;
             this.finishInspectionButton.Text = "Finish Inspection";
             this.finishInspectionButton.UseVisualStyleBackColor = true;
@@ -305,11 +324,12 @@
             // 
             // AlternateUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 455);
+            this.ClientSize = new System.Drawing.Size(1329, 700);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(880, 416);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(1309, 610);
             this.Name = "AlternateUI";
             this.Text = "AlternateUI";
             this.Load += new System.EventHandler(this.AlternateUI_Load);
