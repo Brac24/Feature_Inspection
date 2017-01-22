@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using BrightIdeasSoftware;
-
 /*ALL TABLES REFER TO THE ATI_FeatureInspection Database */
 
 namespace Feature_Inspection
@@ -56,30 +55,56 @@ namespace Feature_Inspection
         /// <param name="e"></param>
         private void AlternateUI_Load(object sender, EventArgs e)
         {
-
-            openMessagePrompt(messPrompt);
-
             partNumberLabelValue.Text = null;
             jobNumberLabelValue.Text = null;
             opNumberLabelValue.Text = null;
+            statusLabelValue.Text = null;
 
 
             // event handlers
             
             textBox1.KeyPress += checkEnterKeyPressed;
             textBox1.Validating += Validating;
-            textBox1.Validated += Validated;
-
-            opNumberLabelValue.TextChanged += LabelValue_TextChanged;
-            
+            textBox1.Validated += Validated;            
 
         }
 
         private void Close_AlternateUI(object sender, FormClosingEventArgs e)
         {
-
+            Application.Exit();
         }
 
+        private void queryInspectionStatus()
+        {
+            string status = null;
+
+            string query;
+
+            try
+            {
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
+                {
+                    conn.Open();
+
+                    query = "SELECT status FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + getInspectionKey() + ";";
+
+                    OdbcCommand comm = new OdbcCommand(query, conn);
+                    OdbcDataReader reader = comm.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        status = reader.GetString(reader.GetOrdinal("status"));
+                    }
+                }
+            }
+            catch
+            {
+                status = null;
+            }
+
+            statusLabelValue.Text = status;
+            
+        }
 
         //Returns whether an inspection exists for a specifif OpKey
         public bool getInspectionExists()
@@ -133,10 +158,12 @@ namespace Feature_Inspection
                 }
 
                 //If there is at least one value to be measured
-                if(countValues>0)
+                if (countValues > 0)
                 {
                     featuresInPositionTable = true;  //There are features in the table
                 }
+                else
+                    featuresExistInPosition = false;
             }
 
             return featuresInPositionTable;
@@ -161,62 +188,78 @@ namespace Feature_Inspection
 
         private void getInfoFromOpKeyEntry(TextBox opkey)
         {
-            using (OdbcConnection conn = new OdbcConnection(connection_string))
+            try
             {
-                conn.Open();
-
-
-                opKeyGlobal = opkey.Text;
-
-
-                string query = "SELECT Job.Part_Number, Job_Operation.Job, Job_Operation.Operation_Service\n" +
-                               "FROM PRODUCTION.dbo.Job\n" +
-                               "INNER JOIN PRODUCTION.dbo.Job_Operation\n" +
-                               "ON Job.Job = Job_Operation.Job\n" +
-                               "WHERE Job_Operation.Job_Operation = '" + opkey.Text + "';";
-
-                OdbcCommand com = new OdbcCommand(query, conn);
-                OdbcDataReader reader = com.ExecuteReader();
-
-                if (reader.Read())
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
-                    partNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Part_Number"));
-                    jobNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Job"));
-                    opNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Operation_Service"));
-                    partNumberLabelValue.Visible = true;
-                    jobNumberLabelValue.Visible = true;
-                    opNumberLabelValue.Visible = true;
+                    conn.Open();
 
-                    partNumGlobal = partNumberLabelValue.Text;
-                    jobNumGlobal = jobNumberLabelValue.Text;
-                    opService = opNumberLabelValue.Text;
-                }
-                else
-                {
-                    partNumberLabelValue.Text = null;
-                    jobNumberLabelValue.Text = null;
-                    opNumberLabelValue.Text = null;
-                    opKeyGlobal = null;
+
+                    opKeyGlobal = opkey.Text;
+
+
+                    string query = "SELECT Job.Part_Number, Job_Operation.Job, Job_Operation.Operation_Service\n" +
+                                   "FROM PRODUCTION.dbo.Job\n" +
+                                   "INNER JOIN PRODUCTION.dbo.Job_Operation\n" +
+                                   "ON Job.Job = Job_Operation.Job\n" +
+                                   "WHERE Job_Operation.Job_Operation = '" + opkey.Text + "';";
+
+                    OdbcCommand com = new OdbcCommand(query, conn);
+                    OdbcDataReader reader = com.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        partNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Part_Number"));
+                        jobNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Job"));
+                        opNumberLabelValue.Text = reader.GetString(reader.GetOrdinal("Operation_Service"));
+                        partNumberLabelValue.Visible = true;
+                        jobNumberLabelValue.Visible = true;
+                        opNumberLabelValue.Visible = true;
+
+                        partNumGlobal = partNumberLabelValue.Text;
+                        jobNumGlobal = jobNumberLabelValue.Text;
+                        opService = opNumberLabelValue.Text;
+                    }
+                    else
+                    {
+                        partNumberLabelValue.Text = null;
+                        jobNumberLabelValue.Text = null;
+                        opNumberLabelValue.Text = null;
+                        opKeyGlobal = null;
+                    }
                 }
             }
+            catch
+            {
+                //MessageBox.Show("Please insert a valid OpKey ");
+            }
+            
         }
 
         private void queryInspectionKeyFromInspectionTable()
         {
-            using (OdbcConnection conn = new OdbcConnection(connection_string))
+            try
             {
-                conn.Open();
-
-                string getInspectionKey = "SELECT Inspection_Key FROM ATI_FeatureInspection.dbo.Inspection\n" +
-                                         "WHERE Op_Key=" + opKeyGlobal + ";";
-                OdbcCommand conncommand2 = new OdbcCommand(getInspectionKey, conn);
-                OdbcDataReader reader1 = conncommand2.ExecuteReader();
-                while (reader1.Read())
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
-                    inspectionKeyGlobal = reader1.GetInt32(reader1.GetOrdinal("Inspection_Key"));
+                    conn.Open();
+
+                    string getInspectionKey = "SELECT Inspection_Key FROM ATI_FeatureInspection.dbo.Inspection\n" +
+                                             "WHERE Op_Key=" + opKeyGlobal + ";";
+                    OdbcCommand conncommand2 = new OdbcCommand(getInspectionKey, conn);
+                    OdbcDataReader reader1 = conncommand2.ExecuteReader();
+                    while (reader1.Read())
+                    {
+                        inspectionKeyGlobal = reader1.GetInt32(reader1.GetOrdinal("Inspection_Key"));
+                    }
+
                 }
+            }
+            catch
+            {
 
             }
+            
         }
 
         /// <summary>
@@ -279,54 +322,79 @@ namespace Feature_Inspection
         }
         private void insertOpKeyToOperation()
         {
-            using (OdbcConnection conn = new OdbcConnection(connection_string))
+            try
             {
-                conn.Open();
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
+                {
+                    conn.Open();
 
-                string insertOperation = "INSERT INTO ATI_FeatureInspection.dbo.Operation (Op_Key, Job_Number, Part_Number, Operation_Number)\n" +
-                                         " VALUES (convert(int," + opKeyGlobal + "),'" + jobNumGlobal + "','" + partNumGlobal + "','" + opService + "');";
+                    string insertOperation = "INSERT INTO ATI_FeatureInspection.dbo.Operation (Op_Key, Job_Number, Part_Number, Operation_Number)\n" +
+                                             " VALUES (convert(int," + opKeyGlobal + "),'" + jobNumGlobal + "','" + partNumGlobal + "','" + opService + "');";
 
-                OdbcCommand com3 = new OdbcCommand(insertOperation, conn);
-                com3.ExecuteNonQuery();
+                    OdbcCommand com3 = new OdbcCommand(insertOperation, conn);
+                    com3.ExecuteNonQuery();
+                }
             }
+            catch
+            {
+                MessageBox.Show("Please Enter a valid opkey");
+            }
+            
         }
 
         private void insertOpKeyToInspection()
         {
-            using (OdbcConnection conn = new OdbcConnection(connection_string))
+            try
             {
-                conn.Open();
-                string insertInspection = "INSERT INTO ATI_FeatureInspection.dbo.Inspection (Op_Key,status)\n" +
-                                        "VALUES (" + opKeyGlobal + ",'Incomplete');";
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
+                {
+                    conn.Open();
+                    string insertInspection = "INSERT INTO ATI_FeatureInspection.dbo.Inspection (Op_Key,status)\n" +
+                                            "VALUES (" + opKeyGlobal + ",'Incomplete');";
 
-                OdbcCommand conncommand = new OdbcCommand(insertInspection, conn);
-                conncommand.ExecuteNonQuery();
+                    OdbcCommand conncommand = new OdbcCommand(insertInspection, conn);
+                    conncommand.ExecuteNonQuery();
+                }
             }
+            catch
+            {
+                
+            }
+            
                
         }
 
         private bool opKeyExistsInOperationTable()
         {
             bool opExists = false;
-            // Will check if OpKey exists in the Operation table
-            using (OdbcConnection conn = new OdbcConnection(connection_string))
+
+            try
             {
-                conn.Open();
-
-
-                string query2 = "SELECT *\n" +
-                                "FROM ATI_FeatureInspection.dbo.Operation\n" +
-                                "WHERE Op_Key = '" + opKeyGlobal + "';";
-
-                OdbcCommand com2 = new OdbcCommand(query2, conn);
-                OdbcDataReader reader2 = com2.ExecuteReader();
-
-
-                while (reader2.Read())
+                // Will check if OpKey exists in the Operation table
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
-                    opExists = true;
+                    conn.Open();
+
+
+                    string query2 = "SELECT *\n" +
+                                    "FROM ATI_FeatureInspection.dbo.Operation\n" +
+                                    "WHERE Op_Key = '" + opKeyGlobal + "';";
+
+                    OdbcCommand com2 = new OdbcCommand(query2, conn);
+                    OdbcDataReader reader2 = com2.ExecuteReader();
+
+
+                    while (reader2.Read())
+                    {
+                        opExists = true;
+                    }
                 }
             }
+            catch
+            {
+                MessageBox.Show("Please Enter a valid opkey");
+            }
+            
 
             return opExists;
         }
@@ -377,38 +445,8 @@ namespace Feature_Inspection
                 featureKey = "(" + String.Join(",", userInput.getFeatureKeysSelected()) + ")";
 
                 bindData();
-                /*
-              while(i<size)
-                {
-                    featureKey = userInput.getFeatureKeysSelected(i);
-
-                    using (OdbcConnection conn = new OdbcConnection(connection_string))
-                    {
-                        conn.Open();
-
-
-                        string query = "SELECT Feature_Name, Nominal, Plus_Tolerance, Minus_Tolerance \n" +
-                                                           "FROM ATI_FeatureInspection.dbo.Features \n" +
-                                                           "WHERE Feature_Key = " + featureKey + ";";
-
-                        OdbcCommand com = new OdbcCommand(query, conn);
-                        OdbcDataReader reader = com.ExecuteReader();
-
-                        if(reader.Read())
-                        {
-     
-                            string feature = reader.GetString(reader.GetOrdinal("Feature_Name"));
-                            var ob = new BrightIdeasSoftware.DataListView();
-                            
-                            
-                        }
-
-                        i++;
-
-                }
-                }
-                */
-
+                textBox1.Focus();
+                
 
             }
             userInput = null;
@@ -519,24 +557,53 @@ namespace Feature_Inspection
                 {
                     conn.Open();
                     string query = "UPDATE ATI_FeatureInspection.dbo.Position SET Measured_Value= " + Decimal.Parse(e.NewValue.ToString())
-                                   + " WHERE Feature_Key=" + dataListView1.AllColumns[0].GetValue(e.RowObject) + ";";
+                                   + " WHERE Feature_Key=" + dataListView1.AllColumns[0].GetValue(e.RowObject) + " AND Piece_ID = "+ dataListView1.AllColumns[1].GetValue(e.RowObject) +
+                                      "AND Place = "+dataListView1.AllColumns[2].GetValue(e.RowObject)+" ;";
 
                     OdbcCommand conncommand = new OdbcCommand(query, conn);
                     conncommand.ExecuteNonQuery();
-
+                    e.NewValue = Decimal.Parse(e.NewValue.ToString());
 
                 }
             }
             catch (FormatException err)
             {
                 MessageBox.Show("Please insert a number ", err.Message);
-                e.NewValue = Decimal.Parse(1.ToString());
+                e.NewValue = e.Value;
+                
+
+                using (OdbcConnection conn = new OdbcConnection(connection_string))
+                {
+                    
+                    conn.Open();
+                    string query = "UPDATE ATI_FeatureInspection.dbo.Position SET Measured_Value= " + Decimal.Parse(e.Value.ToString())
+                                   + " WHERE Feature_Key=" + dataListView1.AllColumns[0].GetValue(e.RowObject) + " AND Piece_ID = " + dataListView1.AllColumns[1].GetValue(e.RowObject) +
+                                      "AND Place = " + dataListView1.AllColumns[2].GetValue(e.RowObject) + " ;";
+
+                    OdbcCommand conncommand = new OdbcCommand(query, conn);
+                    conncommand.ExecuteNonQuery();
+                    e.NewValue = Decimal.Parse(e.Value.ToString());
+
+                    dataListView1.Refresh();
+                    dataListView1.RefreshSelectedObjects();
+                }
             }
         }
 
         private void dataListView1_CellEditFinishing(object sender, BrightIdeasSoftware.CellEditEventArgs e)
         {
-
+            //Will check if the value in the measured value column is a number or not
+            try
+            {
+                e.NewValue = Decimal.Parse(e.NewValue.ToString());
+            }
+            catch
+            {
+                //If not use the last value that was being used
+                e.NewValue = Decimal.Parse(e.Value.ToString());
+            }
+            
+            
         }
 
         private void finishInspectionButton_Click(object sender, EventArgs e)
@@ -545,9 +612,14 @@ namespace Feature_Inspection
             {
                 conn.Open();
 
-                string query = "UPDATE ATI_FeatureInspection.dbo.Inspection SET status=Complete" +
+                string query = "UPDATE ATI_FeatureInspection.dbo.Inspection SET status= 'Complete'" +
                                "WHERE Inspection_Key=" + inspectionKeyGlobal;
+
+                OdbcCommand com = new OdbcCommand(query, conn);
+                com.ExecuteNonQuery();
             }
+
+            queryInspectionStatus(); //Change staus in form
         }
 
         //private void inspection
@@ -565,7 +637,7 @@ namespace Feature_Inspection
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void checkEnterKeyPressed(object sender, KeyPressEventArgs e)
-      {
+     {
             if(e.KeyChar == ((char)13))
             {
                 //If empty
@@ -575,6 +647,7 @@ namespace Feature_Inspection
                 }
                 else
                 {
+                    featuresExistInPosition = false;
                     getInfoFromOpKeyEntry(textBox1);
                     if (opNumberLabelValue.Text.Equals(String.Empty))
                     {
@@ -591,11 +664,22 @@ namespace Feature_Inspection
                     }
                     else if (featuresExistInPositionTable())
                     {
+                        queryInspectionStatus();
                         featuresExistInPosition = true; //This is to let the other form know that there is already an inspection begun for this opkey
                         bindData();
                     }
                     else
                         bindData();
+
+                    queryInspectionKeyFromInspectionTable();
+                    queryInspectionStatus();
+
+                    if (statusLabelValue.Text.Equals("Complete  "))
+                    {
+                        dataListView1.CellEditActivation = ObjectListView.CellEditActivateMode.None;
+                    }
+                    else
+                        dataListView1.CellEditActivation = ObjectListView.CellEditActivateMode.SingleClickAlways;
                 }
             }
             //Do not allow spaces in opkey textbox
@@ -613,7 +697,7 @@ namespace Feature_Inspection
 
         private void Validating(object sender, CancelEventArgs e)
         {
-            this.Close();
+            
             if(formClosing)
             {
 
@@ -682,6 +766,7 @@ namespace Feature_Inspection
 
             result = MessageBox.Show(message, caption, button);
         }
+        /*
         private void LabelValue_TextChanged(object sender, EventArgs e)
         {
             //If invalid opkey
@@ -691,6 +776,7 @@ namespace Feature_Inspection
             }
             
         }
+        */
 
         private void AlternateUI_Click(object sender, EventArgs e)
         {
@@ -705,6 +791,11 @@ namespace Feature_Inspection
         private void dataListView1_AfterCreatingGroups(object sender, CreateGroupsEventArgs e)
         {
             dataListView1.AutoResizeColumns();
+            
+        }
+
+        private void dataListView1_CellEditFinished(object sender, CellEditEventArgs e)
+        {
             
         }
     }
