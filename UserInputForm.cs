@@ -24,7 +24,7 @@ namespace Feature_Inspection
 
 
         AlternateUI op = new AlternateUI();
-        List<FeatureInfo> fInfo = new List<FeatureInfo>();
+       // List<FeatureInfo> fInfo = new List<FeatureInfo>();
         public static List<int> selectedFeatureRows = new List<int>();
 
 
@@ -184,8 +184,7 @@ namespace Feature_Inspection
                 conn.Open();
 
                 string query = "SELECT DISTINCT Feature_Key FROM ATI_FeatureInspection.dbo.Position " +
-                               "WHERE Feature_Key IN (SELECT Feature_Key FROM ATI_FeatureInspection.dbo.Features " +
-                               "WHERE Inspection_Key_FK = " + op.getInspectionKey() + "); ";
+                               "WHERE Inspection_Key_FK = " + op.getInspectionKey() + "; ";
 
                 OdbcCommand comm = new OdbcCommand(query, conn);
                 OdbcDataReader reader = comm.ExecuteReader();
@@ -275,7 +274,7 @@ namespace Feature_Inspection
 
 
                     query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
-                        "WHERE Feature_Key NOT IN (" + string.Join(",", listOfFeaturesThatExistForCurrentInspection()) + ") AND Inspection_Key_FK = " + op.getInspectionKey() + ";\n";
+                        "WHERE Feature_Key NOT IN (" + string.Join(",", listOfFeaturesThatExistForCurrentInspection()) + ") AND Part_Number_FK = '" + op.getPartNo() + "' AND Operation_Number_Fk = '" + op.getOpService() + "';";
 
                     OdbcCommand com = new OdbcCommand(query, conn);
                     OdbcDataReader reader = com.ExecuteReader();
@@ -313,7 +312,7 @@ namespace Feature_Inspection
                     conn.Open();
 
                     query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
-                        "WHERE Inspection_Key_FK = " + op.getInspectionKey() + " AND InheritedFromFeature IS NULL;";
+                        " WHERE Part_Number_FK = (SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = (SELECT Op_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + op.getInspectionKey() + ")) AND InheritedFromFeature IS NULL;";
 
                     OdbcCommand com = new OdbcCommand(query, conn);
                     OdbcDataReader reader = com.ExecuteReader();
@@ -641,8 +640,8 @@ namespace Feature_Inspection
                     {
                         conn.Open();
 
-                        string query = "INSERT INTO ATI_FeatureInspection.dbo.Position (Place, Feature_Key, Piece_ID)\n" + //What are we gonna do about features? When are they updated. How to not duplicate every time we go in to the add features form
-                                       "VALUES (" + place + ", " + featurekey + "," + piece + ");";
+                        string query = "INSERT INTO ATI_FeatureInspection.dbo.Position (Place, Feature_Key, Piece_ID, Inspection_Key_FK)\n" + //What are we gonna do about features? When are they updated. How to not duplicate every time we go in to the add features form
+                                       "VALUES (" + place + ", " + featurekey + "," + piece + ", " + op.getInspectionKey() + ");";
 
 
                         OdbcCommand connCommand = new OdbcCommand(query, conn);
@@ -667,15 +666,16 @@ namespace Feature_Inspection
 
 
                     //Insert new Data from DataGridView Table to the Features table in ATI_Feature Inspectio Database
-                    query = "INSERT INTO ATI_FeatureInspection.dbo.Features (Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces, Inspection_Key_FK)\n" +
+                    query = "INSERT INTO ATI_FeatureInspection.dbo.Features (Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces, Part_Number_FK, Operation_Number_FK)\n" +
                                    "VALUES (" + dataGridView1.Rows[row].Cells[2].Value + "," + dataGridView1.Rows[row].Cells[3].Value + "," +
                                               dataGridView1.Rows[row].Cells[4].Value + ",'" + dataGridView1.Rows[row].Cells[1].Value + "'," +
-                                              dataGridView1.Rows[row].Cells[5].Value + "," + dataGridView1.Rows[row].Cells[6].Value + ",(SELECT Inspection_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Op_Key = " + op.getOpKey() + "));\n";
+                                              dataGridView1.Rows[row].Cells[5].Value + "," + dataGridView1.Rows[row].Cells[6].Value + ",(SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = " + op.getOpKey() + "), (SELECT Operation_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = "+ op.getOpKey() + "));\n";
 
                     OdbcCommand connCommand = new OdbcCommand(query, conn);
                     connCommand.ExecuteNonQuery();
                 }
             }
+            /*
             //Reinserting old feature for new inspection
             //Should only occur when it is a feature that is in the database already
             else
@@ -684,16 +684,17 @@ namespace Feature_Inspection
                 {
                     conn.Open();
 
-                    query = "INSERT INTO ATI_FeatureInspection.dbo.Features (Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces, Inspection_Key_FK, InheritedFromFeature)\n" +
+                    query = "INSERT INTO ATI_FeatureInspection.dbo.Features (Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces, Part_Number_FK, Operation_Number_FK, InheritedFromFeature)\n" +
                                   "VALUES (" + dataGridView1.Rows[row].Cells[2].Value + "," + dataGridView1.Rows[row].Cells[3].Value + "," +
                                              dataGridView1.Rows[row].Cells[4].Value + ",'" + dataGridView1.Rows[row].Cells[1].Value + "'," +
-                                             dataGridView1.Rows[row].Cells[5].Value + "," + dataGridView1.Rows[row].Cells[6].Value + ",(SELECT Inspection_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Op_Key = " + op.getOpKey() + "), " +
+                                             dataGridView1.Rows[row].Cells[5].Value + "," + dataGridView1.Rows[row].Cells[6].Value + ",(SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = " + op.getOpKey() + "), (SELECT Operation_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = " + op.getOpKey() + "), " +
                                              dataGridView1.Rows[row].Cells[7].Value + ");\n";
 
                     OdbcCommand connCommand = new OdbcCommand(query, conn);
                     connCommand.ExecuteNonQuery();
                 }
             }
+            */
 
         }
 
@@ -767,7 +768,7 @@ namespace Feature_Inspection
                 conn.Open();
 
                 query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
-                        "WHERE Inspection_Key_FK = " + op.getInspectionKey() + " ;\n";
+                        " WHERE Part_Number_FK = (SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = (SELECT Op_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + op.getInspectionKey() + "));";
 
                 OdbcCommand comm = new OdbcCommand(query, conn);
                 OdbcDataReader reader = comm.ExecuteReader();
@@ -815,11 +816,10 @@ namespace Feature_Inspection
             {
                 conn.Open();
 
-                foreach (int value in inspecKeys)
-                {
-                    //This query is for new inspections only
-                    query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
-                        "WHERE Inspection_Key_FK = " + value + " AND InheritedFromFeature IS NULL;\n";
+               //This query is for new inspections only
+                    query = "SELECT DISTINCT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
+                            "INNER JOIN ATI_FeatureInspection.dbo.Operation " +
+                            "ON Part_Number_FK = '" + op.getPartNo() + "'  AND Operation_Number_FK = " + op.getOpService() + "; ";
 
 
                     OdbcCommand com = new OdbcCommand(query, conn);
@@ -845,7 +845,7 @@ namespace Feature_Inspection
                         row++;
                         dataGridView1.Rows.Add(); //This will add an extra row after all rows are place in the table
                     }
-                }
+                
                 dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1); //Will remove the last row that was created
 
             }

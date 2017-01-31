@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Feature_Inspection
 {
-    class FeatureInfo
+    class Feature
     {
+        /*
         public FeatureInfo Parent { get; set; }
         public string Feature { get; set; }
         public string Nominal { get; set; }
@@ -27,6 +28,7 @@ namespace Feature_Inspection
             Minus = minus;
         }
 
+        */
         
     }
 }

@@ -16,6 +16,8 @@ namespace Feature_Inspection
 
     public partial class AlternateUI : Form
     {
+
+        
         string connection_string = "DSN=unipointDB;UID=jbread;PWD=Cloudy2Day";
         public static string opKeyGlobal;
         public static string partNumGlobal;
@@ -29,6 +31,7 @@ namespace Feature_Inspection
         BindingSource binding = new BindingSource();
         BindingSource binding2 = new BindingSource();
 
+        
         ListViewItem currentInspection;
         
         string[] inspectionValues = new string[7];  // This will contain info from one of the queried values. Is used as input to currentInspection ListViewItem
@@ -146,8 +149,7 @@ namespace Feature_Inspection
                 conn.Open();
 
                 query = "SELECT Feature_Key, Position_Key, Place, Piece_ID FROM ATI_FeatureInspection.dbo.Position\n " +
-                        "WHERE Feature_Key IN(SELECT Feature_Key FROM ATI_FeatureInspection.dbo.Features " +
-                        "WHERE Inspection_Key_FK = " + inspectionKeyGlobal + ");";
+                        "WHERE Feature_Key IN (SELECT Feature_Key FROM ATI_FeatureInspection.dbo.Features WHERE Part_Number_FK = (SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = (SELECT Op_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + inspectionKeyGlobal + ")));";
 
                 OdbcCommand comm = new OdbcCommand(query, conn);
                 OdbcDataReader reader = comm.ExecuteReader();
@@ -364,6 +366,7 @@ namespace Feature_Inspection
                
         }
 
+       
         private bool opKeyExistsInOperationTable()
         {
             bool opExists = false;
@@ -415,8 +418,7 @@ namespace Feature_Inspection
                     string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, Features.Nominal, Features.Plus_Tolerance, Features.Minus_Tolerance, Measured_Value FROM ATI_FeatureInspection.dbo.Position " +
                                    "INNER JOIN ATI_FeatureInspection.dbo.Features " +
                                    "ON Position.Feature_Key = Features.Feature_Key " +
-                                   "WHERE Position.Feature_Key IN (SELECT Feature_Key FROM ATI_FeatureInspection.dbo.Features " +
-                                   "WHERE Inspection_Key_FK = " + inspectionKeyGlobal + ");";
+                                   "WHERE Position.Inspection_Key_FK = " + getInspectionKey();
 
                     com.CommandText = query;
                     DataTable t = new DataTable();
@@ -641,7 +643,8 @@ namespace Feature_Inspection
             if(e.KeyChar == ((char)13))
             {
                 //If empty
-                if(checkOpKeyTextBoxEmpty(textBox1))
+
+                if (checkOpKeyTextBoxEmpty(textBox1))
                 {
                     invalidOpKeyMessage();
                 }
