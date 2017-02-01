@@ -226,12 +226,19 @@ namespace Feature_Inspection
             string query;
             int inheritedFeature;
 
+            List<int> allRows = new List<int>();
+
+            for(int i=0; i<dataGridView1.RowCount; i++)
+            {
+                allRows.Add(i);
+            }
+
             foreach (int index in oldRows)
             {
                 inheritedFeature = (int)dataGridView1.Rows[index].Cells[7].Value;
 
                 query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
-                    "WHERE InheritedFromFeature = " + inheritedFeature + ";";
+                    "WHERE Feature_Key = " + inheritedFeature + ";";
 
                 using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
@@ -310,14 +317,14 @@ namespace Feature_Inspection
                 using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
                     conn.Open();
-
+                    //STOP RIGHT HERE!!!
                     query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
                         " WHERE Part_Number_FK = (SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = (SELECT Op_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + op.getInspectionKey() + ")) AND InheritedFromFeature IS NULL;";
 
                     OdbcCommand com = new OdbcCommand(query, conn);
                     OdbcDataReader reader = com.ExecuteReader();
 
-                    foreach (int row in newRows)
+                    foreach (int row in allRows)
                     {
                         if (reader.Read())
                         {
