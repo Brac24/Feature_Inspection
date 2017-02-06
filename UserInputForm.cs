@@ -775,7 +775,7 @@ namespace Feature_Inspection
                 conn.Open();
 
                 query = "SELECT Feature_Key, Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces FROM ATI_FeatureInspection.dbo.Features\n" +
-                        " WHERE Part_Number_FK = (SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = (SELECT Op_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + op.getInspectionKey() + "));";
+                        " WHERE Part_Number_FK = (SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = (SELECT Op_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + op.getInspectionKey() + "))  AND Operation_Number_FK = (SELECT Operation_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = (SELECT Op_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + op.getInspectionKey() + "));";
 
                 OdbcCommand comm = new OdbcCommand(query, conn);
                 OdbcDataReader reader = comm.ExecuteReader();

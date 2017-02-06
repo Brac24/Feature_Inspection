@@ -395,7 +395,7 @@ namespace Feature_Inspection
             }
             catch
             {
-                MessageBox.Show("Please Enter a valid opkey");
+                //MessageBox.Show("Please Enter a valid opkey");
             }
             
 
