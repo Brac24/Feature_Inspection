@@ -48,6 +48,7 @@
             this.finishInspectionButton = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataListView1 = new BrightIdeasSoftware.DataListView();
+            this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -285,6 +286,7 @@
             // 
             // dataListView1
             // 
+            this.dataListView1.AllColumns.Add(this.olvColumn1);
             this.dataListView1.AllowColumnReorder = true;
             this.dataListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -293,10 +295,11 @@
             this.dataListView1.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClickAlways;
             this.dataListView1.CellEditEnterChangesRows = true;
             this.dataListView1.CellEditUseWholeCell = false;
+            this.dataListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.olvColumn1});
             this.tableLayoutPanel1.SetColumnSpan(this.dataListView1, 4);
             this.dataListView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataListView1.DataSource = null;
-            this.dataListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.dataListView1.Location = new System.Drawing.Point(152, 3);
             this.dataListView1.Name = "dataListView1";
             this.tableLayoutPanel1.SetRowSpan(this.dataListView1, 6);
@@ -310,6 +313,13 @@
             this.dataListView1.CellEditFinishing += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditFinishing);
             this.dataListView1.CellEditValidating += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditValidating);
             this.dataListView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.dataListView1_ColumnWidthChanged);
+            // 
+            // olvColumn1
+            // 
+            this.olvColumn1.AspectName = "Feature_Key";
+            this.olvColumn1.IsEditable = false;
+            this.olvColumn1.IsVisible = false;
+            this.olvColumn1.Width = 0;
             // 
             // AlternateUI
             // 
@@ -363,5 +373,6 @@
         private System.Windows.Forms.Button finishInspectionButton;
         private System.Windows.Forms.Label statusLabelValue;
         private System.Windows.Forms.Label statusLabel;
+        private BrightIdeasSoftware.OLVColumn olvColumn1;
     }
 }

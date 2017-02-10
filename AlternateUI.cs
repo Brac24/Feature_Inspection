@@ -68,9 +68,12 @@ namespace Feature_Inspection
             
             textBox1.KeyPress += checkEnterKeyPressed;
             textBox1.Validating += Validating;
-            textBox1.Validated += Validated;            
+            textBox1.Validated += Validated;
+            
 
         }
+
+        
 
         private void Close_AlternateUI(object sender, FormClosingEventArgs e)
         {
@@ -404,6 +407,9 @@ namespace Feature_Inspection
 
         private void bindData()
         {
+            int maxRows;
+           
+            
             try
             {
                 using (OdbcConnection conn = new OdbcConnection(connection_string))
@@ -426,6 +432,10 @@ namespace Feature_Inspection
 
                     dataListView1.DataSource = null;
                     dataListView1.DataSource = t;
+                    maxRows = t.Rows.Count;
+                
+                    
+                    
 
                 }
             }
@@ -433,6 +443,9 @@ namespace Feature_Inspection
             {
                 MessageBox.Show("Youre a foo", e.Message);
             }
+
+            
+            
         }
 
         //Opens the user input form and reopens main form after closed
@@ -504,6 +517,9 @@ namespace Feature_Inspection
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
+            dataListView1.AllColumns[0].Width = 0; //Hide the FeatureKey Column
+
+            
 
         }
 
@@ -533,14 +549,32 @@ namespace Feature_Inspection
             dataListView1.Refresh();
             dataListView1.Update();
             dataListView1.AllColumns[6].CellEditUseWholeCell = true;
-            dataListView1.AllColumns[0].IsEditable = false;
+            dataListView1.AllColumns[0].IsVisible = false;
+            
             dataListView1.AllColumns[1].IsEditable = false;
             dataListView1.AllColumns[2].IsEditable = false;
             dataListView1.AllColumns[3].IsEditable = false;
             dataListView1.AllColumns[4].IsEditable = false;
             dataListView1.AllColumns[5].IsEditable = false;
             dataListView1.AllColumns[6].IsEditable = false;
+            dataListView1.AllColumns[0].Width = 0;
 
+            /*
+            this.dataListView1.AllColumns[4].GroupKeyGetter = delegate (object rowObject)
+            {
+                FeatureParamStruct param = (FeatureParamStruct)rowObject;
+                return String.Join(",", param.ToString());
+            };
+
+            
+            this.dataListView1.AllColumns[4].GroupKeyToTitleConverter = delegate (object groupkey)
+            {
+
+
+                return groupkey.ToString();
+            };
+            
+            */
         }
 
         private void dataListView1_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
@@ -560,7 +594,7 @@ namespace Feature_Inspection
                     conn.Open();
                     string query = "UPDATE ATI_FeatureInspection.dbo.Position SET Measured_Value= " + Decimal.Parse(e.NewValue.ToString())
                                    + " WHERE Feature_Key=" + dataListView1.AllColumns[0].GetValue(e.RowObject) + " AND Piece_ID = "+ dataListView1.AllColumns[1].GetValue(e.RowObject) +
-                                      "AND Place = "+dataListView1.AllColumns[2].GetValue(e.RowObject)+" ;";
+                                      "AND Place = "+dataListView1.AllColumns[2].GetValue(e.RowObject)+" AND Inspection_Key_FK = " + getInspectionKey() + ";";
 
                     OdbcCommand conncommand = new OdbcCommand(query, conn);
                     conncommand.ExecuteNonQuery();
@@ -794,6 +828,7 @@ namespace Feature_Inspection
         private void dataListView1_AfterCreatingGroups(object sender, CreateGroupsEventArgs e)
         {
             dataListView1.AutoResizeColumns();
+            dataListView1.AllColumns[0].Width = 0;
             
         }
 
