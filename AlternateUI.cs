@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using BrightIdeasSoftware;
+using System.Speech.Synthesis;
+
 /*ALL TABLES REFER TO THE ATI_FeatureInspection Database */
 //THIS IS THE similarWithDifferentDataTables BRANCH
 namespace Feature_Inspection
@@ -19,18 +21,16 @@ namespace Feature_Inspection
 
         
         string connection_string = "DSN=unipointDB;UID=jbread;PWD=Cloudy2Day";
-        public static string opKeyGlobal;
-        public static string partNumGlobal;
-        public static string jobNumGlobal;
-        public static string opService;
-        public static int inspectionKeyGlobal;
-        public static bool formClosing;
-        public static bool featuresExistInPosition = false;
+        public static string OpKeyGlobal;
+        public static string PartNumGlobal;
+        public static string JobNumGlobal;
+        public static string OpService;
+        public static int InspectionKeyGlobal;
+        public static bool FormClose;
+        public static bool FeaturesExistInPosition = false;
         messagePrompt messPrompt = new messagePrompt();
 
-        BindingSource binding = new BindingSource();
-        BindingSource binding2 = new BindingSource();
-
+        SpeechSynthesizer synth = new SpeechSynthesizer();
         
         ListViewItem currentInspection;
         
@@ -46,7 +46,7 @@ namespace Feature_Inspection
         public AlternateUI()
         {
             InitializeComponent();
-            this.FormClosing += Close_AlternateUI;
+            base.FormClosing += Close_AlternateUI;
         }
 
         /// <summary>
@@ -69,6 +69,7 @@ namespace Feature_Inspection
             textBox1.KeyPress += checkEnterKeyPressed;
             textBox1.Validating += Validating;
             textBox1.Validated += Validated;
+            //synth.Speak("What up doggy, I'm bout to open this dank ass program, This shit fire, This program is Major Key, If you don't like it then cash me outside how bout dat. We out thew.");
             
 
         }
@@ -120,25 +121,25 @@ namespace Feature_Inspection
 
         public bool getFeaturesExistInPosition()
         {
-            return featuresExistInPosition;
+            return FeaturesExistInPosition;
         }
         public int getOpKey()
         {
-            return Int32.Parse(opKeyGlobal);
+            return Int32.Parse(OpKeyGlobal);
         }
         public string getOpService()
         {
-            return opService;
+            return OpService;
         }
 
         public string getPartNo()
         {
-            return partNumGlobal;
+            return PartNumGlobal;
         }
 
         public int getInspectionKey()
         {
-            return inspectionKeyGlobal;
+            return InspectionKeyGlobal;
         }
 
         private bool featuresExistInPositionTable()
@@ -152,7 +153,7 @@ namespace Feature_Inspection
                 conn.Open();
 
                 query = "SELECT Feature_Key, Position_Key, Place, Piece_ID FROM ATI_FeatureInspection.dbo.Position\n " +
-                        "WHERE Feature_Key IN (SELECT Feature_Key FROM ATI_FeatureInspection.dbo.Features WHERE Part_Number_FK = (SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = (SELECT Op_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + inspectionKeyGlobal + ")));";
+                        "WHERE Feature_Key IN (SELECT Feature_Key FROM ATI_FeatureInspection.dbo.Features WHERE Part_Number_FK = (SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = (SELECT Op_Key FROM ATI_FeatureInspection.dbo.Inspection WHERE Inspection_Key = " + InspectionKeyGlobal + ")));";
 
                 OdbcCommand comm = new OdbcCommand(query, conn);
                 OdbcDataReader reader = comm.ExecuteReader();
@@ -168,7 +169,7 @@ namespace Feature_Inspection
                     featuresInPositionTable = true;  //There are features in the table
                 }
                 else
-                    featuresExistInPosition = false;
+                    FeaturesExistInPosition = false;
             }
 
             return featuresInPositionTable;
@@ -200,7 +201,7 @@ namespace Feature_Inspection
                     conn.Open();
 
 
-                    opKeyGlobal = opkey.Text;
+                    OpKeyGlobal = opkey.Text;
 
 
                     string query = "SELECT Job.Part_Number, Job_Operation.Job, Job_Operation.Operation_Service\n" +
@@ -221,16 +222,16 @@ namespace Feature_Inspection
                         jobNumberLabelValue.Visible = true;
                         opNumberLabelValue.Visible = true;
 
-                        partNumGlobal = partNumberLabelValue.Text;
-                        jobNumGlobal = jobNumberLabelValue.Text;
-                        opService = opNumberLabelValue.Text;
+                        PartNumGlobal = partNumberLabelValue.Text;
+                        JobNumGlobal = jobNumberLabelValue.Text;
+                        OpService = opNumberLabelValue.Text;
                     }
                     else
                     {
                         partNumberLabelValue.Text = null;
                         jobNumberLabelValue.Text = null;
                         opNumberLabelValue.Text = null;
-                        opKeyGlobal = null;
+                        OpKeyGlobal = null;
                     }
                 }
             }
@@ -250,12 +251,12 @@ namespace Feature_Inspection
                     conn.Open();
 
                     string getInspectionKey = "SELECT Inspection_Key FROM ATI_FeatureInspection.dbo.Inspection\n" +
-                                             "WHERE Op_Key=" + opKeyGlobal + ";";
+                                             "WHERE Op_Key=" + OpKeyGlobal + ";";
                     OdbcCommand conncommand2 = new OdbcCommand(getInspectionKey, conn);
                     OdbcDataReader reader1 = conncommand2.ExecuteReader();
                     while (reader1.Read())
                     {
-                        inspectionKeyGlobal = reader1.GetInt32(reader1.GetOrdinal("Inspection_Key"));
+                        InspectionKeyGlobal = reader1.GetInt32(reader1.GetOrdinal("Inspection_Key"));
                     }
 
                 }
@@ -316,7 +317,7 @@ namespace Feature_Inspection
                     }
                     else
                     {
-                        inspectionKeyGlobal = reader.GetInt32(reader.GetOrdinal("Inspection_Key"));
+                        InspectionKeyGlobal = reader.GetInt32(reader.GetOrdinal("Inspection_Key"));
                     }
                 }
                 else
@@ -334,7 +335,7 @@ namespace Feature_Inspection
                     conn.Open();
 
                     string insertOperation = "INSERT INTO ATI_FeatureInspection.dbo.Operation (Op_Key, Job_Number, Part_Number, Operation_Number)\n" +
-                                             " VALUES (convert(int," + opKeyGlobal + "),'" + jobNumGlobal + "','" + partNumGlobal + "','" + opService + "');";
+                                             " VALUES (convert(int," + OpKeyGlobal + "),'" + JobNumGlobal + "','" + PartNumGlobal + "','" + OpService + "');";
 
                     OdbcCommand com3 = new OdbcCommand(insertOperation, conn);
                     com3.ExecuteNonQuery();
@@ -355,7 +356,7 @@ namespace Feature_Inspection
                 {
                     conn.Open();
                     string insertInspection = "INSERT INTO ATI_FeatureInspection.dbo.Inspection (Op_Key,status)\n" +
-                                            "VALUES (" + opKeyGlobal + ",'Incomplete');";
+                                            "VALUES (" + OpKeyGlobal + ",'Incomplete');";
 
                     OdbcCommand conncommand = new OdbcCommand(insertInspection, conn);
                     conncommand.ExecuteNonQuery();
@@ -384,7 +385,7 @@ namespace Feature_Inspection
 
                     string query2 = "SELECT *\n" +
                                     "FROM ATI_FeatureInspection.dbo.Operation\n" +
-                                    "WHERE Op_Key = '" + opKeyGlobal + "';";
+                                    "WHERE Op_Key = '" + OpKeyGlobal + "';";
 
                     OdbcCommand com2 = new OdbcCommand(query2, conn);
                     OdbcDataReader reader2 = com2.ExecuteReader();
@@ -557,6 +558,7 @@ namespace Feature_Inspection
             dataListView1.AllColumns[4].IsEditable = false;
             dataListView1.AllColumns[5].IsEditable = false;
             dataListView1.AllColumns[6].IsEditable = false;
+
             dataListView1.AllColumns[0].Width = 0;
 
             /*
@@ -649,7 +651,7 @@ namespace Feature_Inspection
                 conn.Open();
 
                 string query = "UPDATE ATI_FeatureInspection.dbo.Inspection SET status= 'Complete'" +
-                               "WHERE Inspection_Key=" + inspectionKeyGlobal;
+                               "WHERE Inspection_Key=" + InspectionKeyGlobal;
 
                 OdbcCommand com = new OdbcCommand(query, conn);
                 com.ExecuteNonQuery();
@@ -684,7 +686,7 @@ namespace Feature_Inspection
                 }
                 else
                 {
-                    featuresExistInPosition = false;
+                    FeaturesExistInPosition = false;
                     getInfoFromOpKeyEntry(textBox1);
                     if (opNumberLabelValue.Text.Equals(String.Empty))
                     {
@@ -702,7 +704,7 @@ namespace Feature_Inspection
                     else if (featuresExistInPositionTable())
                     {
                         queryInspectionStatus();
-                        featuresExistInPosition = true; //This is to let the other form know that there is already an inspection begun for this opkey
+                        FeaturesExistInPosition = true; //This is to let the other form know that there is already an inspection begun for this opkey
                         bindData();
                     }
                     else
@@ -735,7 +737,7 @@ namespace Feature_Inspection
         private void Validating(object sender, CancelEventArgs e)
         {
             
-            if(formClosing)
+            if(FormClose)
             {
 
             }
@@ -744,7 +746,7 @@ namespace Feature_Inspection
                 //e.Cancel = true;
                 invalidOpKeyMessage();
             }
-           else if (textBox1.Text != opKeyGlobal)
+           else if (textBox1.Text != OpKeyGlobal)
             {
                 e.Cancel = true;
                 string message = "Please press Enter in the OpKey text field";

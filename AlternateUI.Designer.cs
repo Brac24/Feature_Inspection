@@ -47,8 +47,8 @@
             this.addFeatureButton = new System.Windows.Forms.Button();
             this.finishInspectionButton = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dataListView1 = new BrightIdeasSoftware.DataListView();
             this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.dataListView1 = new BrightIdeasSoftware.DataListView();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,13 +68,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.79955F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.81303F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.05041F));
+            this.tableLayoutPanel1.Controls.Add(this.dataListView1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.dataListView1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -86,7 +86,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.51701F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.45977F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.298851F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(895, 459);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(782, 459);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -284,13 +284,19 @@
             this.panel6.Size = new System.Drawing.Size(143, 186);
             this.panel6.TabIndex = 5;
             // 
+            // olvColumn1
+            // 
+            this.olvColumn1.AspectName = "Feature_Key";
+            this.olvColumn1.IsEditable = false;
+            this.olvColumn1.IsVisible = false;
+            this.olvColumn1.Width = 0;
+            // 
             // dataListView1
             // 
             this.dataListView1.AllColumns.Add(this.olvColumn1);
             this.dataListView1.AllowColumnReorder = true;
-            this.dataListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataListView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataListView1.BackColor = System.Drawing.SystemColors.Info;
             this.dataListView1.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClickAlways;
             this.dataListView1.CellEditEnterChangesRows = true;
@@ -314,20 +320,15 @@
             this.dataListView1.CellEditValidating += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditValidating);
             this.dataListView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.dataListView1_ColumnWidthChanged);
             // 
-            // olvColumn1
-            // 
-            this.olvColumn1.AspectName = "Feature_Key";
-            this.olvColumn1.IsEditable = false;
-            this.olvColumn1.IsVisible = false;
-            this.olvColumn1.Width = 0;
-            // 
             // AlternateUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 459);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(782, 459);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(880, 416);
+            this.MaximumSize = new System.Drawing.Size(850, 1050);
+            this.MinimumSize = new System.Drawing.Size(450, 350);
             this.Name = "AlternateUI";
             this.Text = "AlternateUI";
             this.Load += new System.EventHandler(this.AlternateUI_Load);
@@ -369,10 +370,10 @@
         private System.Windows.Forms.Label opNumberLabelValue;
         private System.Windows.Forms.Label opNumberLabel;
         private System.Windows.Forms.Button addFeatureButton;
-        private BrightIdeasSoftware.DataListView dataListView1;
         private System.Windows.Forms.Button finishInspectionButton;
         private System.Windows.Forms.Label statusLabelValue;
         private System.Windows.Forms.Label statusLabel;
+        private BrightIdeasSoftware.DataListView dataListView1;
         private BrightIdeasSoftware.OLVColumn olvColumn1;
     }
 }

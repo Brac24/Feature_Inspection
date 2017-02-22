@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Feature_Inspection
 {
     static class Program
@@ -18,7 +19,8 @@ namespace Feature_Inspection
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AlternateUI());
             
-            
+
+
         }
     }
 }
