@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataListView1 = new BrightIdeasSoftware.DataListView();
+            this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.opKeyLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -47,15 +49,13 @@
             this.addFeatureButton = new System.Windows.Forms.Button();
             this.finishInspectionButton = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.dataListView1 = new BrightIdeasSoftware.DataListView();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -89,6 +89,43 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(782, 459);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // dataListView1
+            // 
+            this.dataListView1.AllColumns.Add(this.olvColumn1);
+            this.dataListView1.AllowColumnReorder = true;
+            this.dataListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataListView1.BackColor = System.Drawing.SystemColors.Info;
+            this.dataListView1.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClickAlways;
+            this.dataListView1.CellEditEnterChangesRows = true;
+            this.dataListView1.CellEditUseWholeCell = false;
+            this.dataListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.olvColumn1});
+            this.tableLayoutPanel1.SetColumnSpan(this.dataListView1, 4);
+            this.dataListView1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dataListView1.DataSource = null;
+            this.dataListView1.Location = new System.Drawing.Point(152, 3);
+            this.dataListView1.Name = "dataListView1";
+            this.tableLayoutPanel1.SetRowSpan(this.dataListView1, 6);
+            this.dataListView1.Size = new System.Drawing.Size(530, 444);
+            this.dataListView1.TabIndex = 10;
+            this.dataListView1.UseCompatibleStateImageBehavior = false;
+            this.dataListView1.View = System.Windows.Forms.View.Details;
+            this.dataListView1.AfterCreatingGroups += new System.EventHandler<BrightIdeasSoftware.CreateGroupsEventArgs>(this.dataListView1_AfterCreatingGroups);
+            this.dataListView1.BeforeCreatingGroups += new System.EventHandler<BrightIdeasSoftware.CreateGroupsEventArgs>(this.dataListView1_BeforeCreatingGroups);
+            this.dataListView1.CellEditFinished += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditFinished);
+            this.dataListView1.CellEditFinishing += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditFinishing);
+            this.dataListView1.CellEditValidating += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditValidating);
+            this.dataListView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.dataListView1_ColumnWidthChanged);
+            // 
+            // olvColumn1
+            // 
+            this.olvColumn1.AspectName = "Feature_Key";
+            this.olvColumn1.IsEditable = false;
+            this.olvColumn1.IsVisible = false;
+            this.olvColumn1.Width = 0;
             // 
             // panel1
             // 
@@ -284,42 +321,6 @@
             this.panel6.Size = new System.Drawing.Size(143, 186);
             this.panel6.TabIndex = 5;
             // 
-            // olvColumn1
-            // 
-            this.olvColumn1.AspectName = "Feature_Key";
-            this.olvColumn1.IsEditable = false;
-            this.olvColumn1.IsVisible = false;
-            this.olvColumn1.Width = 0;
-            // 
-            // dataListView1
-            // 
-            this.dataListView1.AllColumns.Add(this.olvColumn1);
-            this.dataListView1.AllowColumnReorder = true;
-            this.dataListView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dataListView1.BackColor = System.Drawing.SystemColors.Info;
-            this.dataListView1.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClickAlways;
-            this.dataListView1.CellEditEnterChangesRows = true;
-            this.dataListView1.CellEditUseWholeCell = false;
-            this.dataListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvColumn1});
-            this.tableLayoutPanel1.SetColumnSpan(this.dataListView1, 4);
-            this.dataListView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dataListView1.DataSource = null;
-            this.dataListView1.Location = new System.Drawing.Point(152, 3);
-            this.dataListView1.Name = "dataListView1";
-            this.tableLayoutPanel1.SetRowSpan(this.dataListView1, 6);
-            this.dataListView1.Size = new System.Drawing.Size(625, 444);
-            this.dataListView1.TabIndex = 10;
-            this.dataListView1.UseCompatibleStateImageBehavior = false;
-            this.dataListView1.View = System.Windows.Forms.View.Details;
-            this.dataListView1.AfterCreatingGroups += new System.EventHandler<BrightIdeasSoftware.CreateGroupsEventArgs>(this.dataListView1_AfterCreatingGroups);
-            this.dataListView1.BeforeCreatingGroups += new System.EventHandler<BrightIdeasSoftware.CreateGroupsEventArgs>(this.dataListView1_BeforeCreatingGroups);
-            this.dataListView1.CellEditFinished += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditFinished);
-            this.dataListView1.CellEditFinishing += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditFinishing);
-            this.dataListView1.CellEditValidating += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditValidating);
-            this.dataListView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.dataListView1_ColumnWidthChanged);
-            // 
             // AlternateUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,6 +337,7 @@
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AlternateUI_MouseClick);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -346,7 +348,6 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

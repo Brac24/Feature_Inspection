@@ -434,8 +434,17 @@ namespace Feature_Inspection
                     dataListView1.DataSource = null;
                     dataListView1.DataSource = t;
                     maxRows = t.Rows.Count;
+                    /*
+                    foreach (int row in t.Rows)
+                    {
+                        if (Int32.Parse(t.Rows[row].ItemArray[4].ToString()) <
+                            Int32.Parse(t.Rows[row].ItemArray[7].ToString()))
+                        {
+                            
+                        }
+                    }
                 
-                    
+                    */
                     
 
                 }
@@ -774,7 +783,7 @@ namespace Feature_Inspection
 
         private void Validated(object sender, EventArgs e)
         {
-
+            dataListView1.AutoSizeColumns();
         }
 
 
@@ -832,11 +841,26 @@ namespace Feature_Inspection
             dataListView1.AutoResizeColumns();
             dataListView1.AllColumns[0].Width = 0;
             
+
         }
 
         private void dataListView1_CellEditFinished(object sender, CellEditEventArgs e)
         {
             
         }
+
+    /*    private void dataListView1_FormatCell(object sender, FormatCellEventArgs e)
+        {
+            DataTable t = new DataTable();
+
+            t = (DataTable) this.dataListView1.DataSource;
+
+            if(Int32.Parse(t.Rows[e.RowIndex].ItemArray[4].ToString()) < Int32.Parse(t.Rows[e.RowIndex].ItemArray[7].ToString()))
+            {
+                
+            }
+                
+        }
+        */
     }
 }
