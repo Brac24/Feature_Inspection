@@ -28,6 +28,7 @@ namespace Feature_Inspection
         public static int InspectionKeyGlobal;
         public static bool FormClose;
         public static bool FeaturesExistInPosition = false;
+        public bool FIRST_TIME_CREATING_GROUPS = true;
         messagePrompt messPrompt = new messagePrompt();
 
         SpeechSynthesizer synth = new SpeechSynthesizer();
@@ -62,7 +63,7 @@ namespace Feature_Inspection
             jobNumberLabelValue.Text = null;
             opNumberLabelValue.Text = null;
             statusLabelValue.Text = null;
-
+            
 
             // event handlers
             
@@ -70,7 +71,7 @@ namespace Feature_Inspection
             textBox1.Validating += Validating;
             textBox1.Validated += Validated;
             //synth.Speak("What up doggy, I'm bout to open this dank ass program, This shit fire, This program is Major Key, If you don't like it then cash me outside how bout dat. We out thew.");
-            
+           
 
         }
 
@@ -528,8 +529,8 @@ namespace Feature_Inspection
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             dataListView1.AllColumns[0].Width = 0; //Hide the FeatureKey Column
-
             
+
 
         }
 
@@ -541,6 +542,17 @@ namespace Feature_Inspection
 
         private void dataListView1_BeforeCreatingGroups(object sender, BrightIdeasSoftware.CreateGroupsEventArgs e)
         {
+
+            
+            if (FIRST_TIME_CREATING_GROUPS)
+            {
+                dataListView1.AlwaysGroupByColumn = dataListView1.GetColumn(1);
+            }
+            else
+            {
+                dataListView1.AlwaysGroupByColumn = dataListView1.SelectedColumn;
+            }
+            
             /*
             int groupNumber = 0;
             foreach(BrightIdeasSoftware.OLVGroup group in e.Groups)
@@ -555,11 +567,13 @@ namespace Feature_Inspection
            // e.Canceled = true;
           
             dataListView1.AutoResizeColumns();
-
+            
             dataListView1.Refresh();
             dataListView1.Update();
             dataListView1.AllColumns[6].CellEditUseWholeCell = true;
             dataListView1.AllColumns[0].IsVisible = false;
+            //dataListView1.AllColumns[1].IsVisible = true;
+            
             
             dataListView1.AllColumns[1].IsEditable = false;
             dataListView1.AllColumns[2].IsEditable = false;
@@ -567,9 +581,12 @@ namespace Feature_Inspection
             dataListView1.AllColumns[4].IsEditable = false;
             dataListView1.AllColumns[5].IsEditable = false;
             dataListView1.AllColumns[6].IsEditable = false;
+            
 
             dataListView1.AllColumns[0].Width = 0;
 
+            FIRST_TIME_CREATING_GROUPS = false;
+         
             /*
             this.dataListView1.AllColumns[4].GroupKeyGetter = delegate (object rowObject)
             {
@@ -687,6 +704,9 @@ namespace Feature_Inspection
      {
             if(e.KeyChar == ((char)13))
             {
+                //This is used in the Before Creating Groups event
+                FIRST_TIME_CREATING_GROUPS = true; //This is reset to true after trying to search for a different opkey. This is used to always sort by the piece number column the first time we open an inspection
+                                           
                 //If empty
 
                 if (checkOpKeyTextBoxEmpty(textBox1))
@@ -695,6 +715,7 @@ namespace Feature_Inspection
                 }
                 else
                 {
+                    
                     FeaturesExistInPosition = false;
                     getInfoFromOpKeyEntry(textBox1);
                     if (opNumberLabelValue.Text.Equals(String.Empty))
@@ -712,12 +733,20 @@ namespace Feature_Inspection
                     }
                     else if (featuresExistInPositionTable())
                     {
+                        olvColumn2.IsVisible = true;
+                        dataListView1.RebuildColumns();
                         queryInspectionStatus();
-                        FeaturesExistInPosition = true; //This is to let the other form know that there is already an inspection begun for this opkey
+                        FeaturesExistInPosition = true;
+                            //This is to let the other form know that there is already an inspection begun for this opkey
                         bindData();
                     }
                     else
+                    {
+                        olvColumn2.IsVisible = true;
+                        dataListView1.RebuildColumns();
                         bindData();
+                    }
+                       
 
                     queryInspectionKeyFromInspectionTable();
                     queryInspectionStatus();

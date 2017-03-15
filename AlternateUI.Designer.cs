@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataListView1 = new BrightIdeasSoftware.DataListView();
             this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.opKeyLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -93,6 +94,7 @@
             // dataListView1
             // 
             this.dataListView1.AllColumns.Add(this.olvColumn1);
+            this.dataListView1.AllColumns.Add(this.olvColumn2);
             this.dataListView1.AllowColumnReorder = true;
             this.dataListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -126,6 +128,13 @@
             this.olvColumn1.IsEditable = false;
             this.olvColumn1.IsVisible = false;
             this.olvColumn1.Width = 0;
+            // 
+            // olvColumn2
+            // 
+            this.olvColumn2.AspectName = "Piece_ID";
+            this.olvColumn2.DisplayIndex = 1;
+            this.olvColumn2.IsVisible = false;
+            this.olvColumn2.Text = "#";
             // 
             // panel1
             // 
@@ -376,5 +385,6 @@
         private System.Windows.Forms.Label statusLabel;
         private BrightIdeasSoftware.DataListView dataListView1;
         private BrightIdeasSoftware.OLVColumn olvColumn1;
+        private BrightIdeasSoftware.OLVColumn olvColumn2;
     }
 }
