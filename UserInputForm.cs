@@ -314,6 +314,7 @@ namespace Feature_Inspection
 
             catch
             {
+                /*
                 using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
                     conn.Open();
@@ -348,6 +349,7 @@ namespace Feature_Inspection
                     }
                 }
                 dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1); //Will remove the last row that was created
+                */
             }
             
    
