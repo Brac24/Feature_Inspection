@@ -71,7 +71,8 @@ namespace Feature_Inspection
             textBox1.Validating += Validating;
             textBox1.Validated += Validated;
             //synth.Speak("What up doggy, I'm bout to open this dank ass program, This shit fire, This program is Major Key, If you don't like it then cash me outside how bout dat. We out thew.");
-           
+            dataListView1.AllColumns[0].IsVisible = false;
+            dataListView1.RebuildColumns();
 
         }
 
@@ -470,6 +471,7 @@ namespace Feature_Inspection
             {
                 featureKey = "(" + String.Join(",", userInput.getFeatureKeysSelected()) + ")";
 
+                FIRST_TIME_CREATING_GROUPS = true; //Needs to be reset here after adding a new feature to the inspection. This ensures it does not order by feature key
                 bindData();
                 textBox1.Focus();
                 
@@ -528,7 +530,7 @@ namespace Feature_Inspection
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            dataListView1.AllColumns[0].Width = 0; //Hide the FeatureKey Column
+           // dataListView1.AllColumns[0].Width = 0; //Hide the FeatureKey Column
             
 
 
@@ -571,7 +573,8 @@ namespace Feature_Inspection
             dataListView1.Refresh();
             dataListView1.Update();
             dataListView1.AllColumns[6].CellEditUseWholeCell = true;
-            dataListView1.AllColumns[0].IsVisible = false;
+            //dataListView1.AllColumns[0].IsVisible = false;
+            
             //dataListView1.AllColumns[1].IsVisible = true;
             
             
@@ -583,7 +586,7 @@ namespace Feature_Inspection
             dataListView1.AllColumns[6].IsEditable = false;
             
 
-            dataListView1.AllColumns[0].Width = 0;
+            //dataListView1.AllColumns[0].Width = 0;
 
             FIRST_TIME_CREATING_GROUPS = false;
          
@@ -868,7 +871,7 @@ namespace Feature_Inspection
         private void dataListView1_AfterCreatingGroups(object sender, CreateGroupsEventArgs e)
         {
             dataListView1.AutoResizeColumns();
-            dataListView1.AllColumns[0].Width = 0;
+            //dataListView1.AllColumns[0].Width = 0;
             
 
         }

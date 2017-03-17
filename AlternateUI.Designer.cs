@@ -125,8 +125,14 @@
             // olvColumn1
             // 
             this.olvColumn1.AspectName = "Feature_Key";
+            this.olvColumn1.AutoCompleteEditor = false;
+            this.olvColumn1.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.olvColumn1.ButtonSizing = BrightIdeasSoftware.OLVColumn.ButtonSizingMode.CellBounds;
+            this.olvColumn1.Groupable = false;
             this.olvColumn1.IsEditable = false;
             this.olvColumn1.IsVisible = false;
+            this.olvColumn1.MaximumWidth = 0;
+            this.olvColumn1.MinimumWidth = 0;
             this.olvColumn1.Width = 0;
             // 
             // olvColumn2
@@ -384,7 +390,7 @@
         private System.Windows.Forms.Label statusLabelValue;
         private System.Windows.Forms.Label statusLabel;
         private BrightIdeasSoftware.DataListView dataListView1;
-        private BrightIdeasSoftware.OLVColumn olvColumn1;
         private BrightIdeasSoftware.OLVColumn olvColumn2;
+        private BrightIdeasSoftware.OLVColumn olvColumn1;
     }
 }

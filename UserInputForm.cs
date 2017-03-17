@@ -494,10 +494,13 @@ namespace Feature_Inspection
             int nominalCol = 2;
             int plusCol = 3;
             int minusCol = 4;
+            int placesCol = 5;
+            int piecesCol = 6;
 
             int countColCheck = 0;
 
-            if (e.ColumnIndex == nominalCol || e.ColumnIndex == plusCol || e.ColumnIndex == minusCol)
+            if (e.ColumnIndex == nominalCol || e.ColumnIndex == plusCol || e.ColumnIndex == minusCol
+                || e.ColumnIndex == placesCol || e.ColumnIndex == piecesCol)
             {
                 //Wait for form to draw the column names
                 if (e.RowIndex >= 0)
@@ -682,8 +685,8 @@ namespace Feature_Inspection
                     connCommand.ExecuteNonQuery();
                 }
             }
-            /*
-            //Reinserting old feature for new inspection
+            
+            //Updating old feature for new inspection
             //Should only occur when it is a feature that is in the database already
             else
             {
@@ -691,17 +694,17 @@ namespace Feature_Inspection
                 {
                     conn.Open();
 
-                    query = "INSERT INTO ATI_FeatureInspection.dbo.Features (Nominal, Plus_Tolerance, Minus_Tolerance, Feature_Name, Places, Pieces, Part_Number_FK, Operation_Number_FK, InheritedFromFeature)\n" +
-                                  "VALUES (" + dataGridView1.Rows[row].Cells[2].Value + "," + dataGridView1.Rows[row].Cells[3].Value + "," +
-                                             dataGridView1.Rows[row].Cells[4].Value + ",'" + dataGridView1.Rows[row].Cells[1].Value + "'," +
-                                             dataGridView1.Rows[row].Cells[5].Value + "," + dataGridView1.Rows[row].Cells[6].Value + ",(SELECT Part_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = " + op.getOpKey() + "), (SELECT Operation_Number FROM ATI_FeatureInspection.dbo.Operation WHERE Op_Key = " + op.getOpKey() + "), " +
-                                             dataGridView1.Rows[row].Cells[7].Value + ");\n";
+                    query = "UPDATE ATI_FeatureInspection.dbo.Features " +
+                                  "SET Nominal = " + dataGridView1.Rows[row].Cells[2].Value + ", Plus_Tolerance = " + dataGridView1.Rows[row].Cells[3].Value + ", Minus_Tolerance = " +
+                                             dataGridView1.Rows[row].Cells[4].Value + ", Feature_Name = '" + dataGridView1.Rows[row].Cells[1].Value + "', Places = " +
+                                             dataGridView1.Rows[row].Cells[5].Value + ", Pieces = " + dataGridView1.Rows[row].Cells[6].Value + " WHERE Feature_Key = " +
+                                             dataGridView1.Rows[row].Cells[7].Value + ";\n";
 
                     OdbcCommand connCommand = new OdbcCommand(query, conn);
                     connCommand.ExecuteNonQuery();
                 }
             }
-            */
+            
 
         }
 
