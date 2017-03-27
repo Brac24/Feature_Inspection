@@ -424,7 +424,7 @@ namespace Feature_Inspection
                                                            "WHERE Feature_Key IN " + featureKey + ";"; ;*/
 
 
-                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, Features.Nominal, Features.Plus_Tolerance, Features.Minus_Tolerance, Measured_Value FROM ATI_FeatureInspection.dbo.Position " +
+                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(Features.Nominal AS varchar(10)) + ' +' + CAST(Features.Plus_Tolerance AS varchar(10)) + ' -' + CAST(Features.Minus_Tolerance AS varchar(10)) AS Range, Measured_Value  FROM ATI_FeatureInspection.dbo.Position " +
                                    "INNER JOIN ATI_FeatureInspection.dbo.Features " +
                                    "ON Position.Feature_Key = Features.Feature_Key " +
                                    "WHERE Position.Inspection_Key_FK = " + getInspectionKey();
@@ -572,7 +572,7 @@ namespace Feature_Inspection
             
             dataListView1.Refresh();
             dataListView1.Update();
-            dataListView1.AllColumns[6].CellEditUseWholeCell = true;
+            dataListView1.AllColumns[4].CellEditUseWholeCell = true;
             //dataListView1.AllColumns[0].IsVisible = false;
             
             //dataListView1.AllColumns[1].IsVisible = true;
@@ -582,8 +582,8 @@ namespace Feature_Inspection
             dataListView1.AllColumns[2].IsEditable = false;
             dataListView1.AllColumns[3].IsEditable = false;
             dataListView1.AllColumns[4].IsEditable = false;
-            dataListView1.AllColumns[5].IsEditable = false;
-            dataListView1.AllColumns[6].IsEditable = false;
+            //dataListView1.AllColumns[5].IsEditable = false;
+            //dataListView1.AllColumns[6].IsEditable = false;
             
 
             //dataListView1.AllColumns[0].Width = 0;
@@ -705,8 +705,9 @@ namespace Feature_Inspection
         /// <param name="e"></param>
         private void checkEnterKeyPressed(object sender, KeyPressEventArgs e)
      {
-            if(e.KeyChar == ((char)13))
+            if(e.KeyChar == ((char)13) || e.KeyChar == '\t')
             {
+                e.Handled = true;
                 //This is used in the Before Creating Groups event
                 FIRST_TIME_CREATING_GROUPS = true; //This is reset to true after trying to search for a different opkey. This is used to always sort by the piece number column the first time we open an inspection
                                            
@@ -742,12 +743,15 @@ namespace Feature_Inspection
                         FeaturesExistInPosition = true;
                             //This is to let the other form know that there is already an inspection begun for this opkey
                         bindData();
+                        this.addFeatureButton.Focus();
+
                     }
                     else
                     {
                         olvColumn2.IsVisible = true;
                         dataListView1.RebuildColumns();
                         bindData();
+                        this.addFeatureButton.Focus();
                     }
                        
 
@@ -785,7 +789,11 @@ namespace Feature_Inspection
             else if ((sender as TextBox).Text.Equals(string.Empty))
             {
                 //e.Cancel = true;
-                invalidOpKeyMessage();
+               
+               if(this.addFeatureButton.Focused || this.finishInspectionButton.Focused)
+                {
+                    invalidOpKeyMessage();
+                }
             }
            else if (textBox1.Text != OpKeyGlobal)
             {

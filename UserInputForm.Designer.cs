@@ -37,6 +37,13 @@
             this.partNoTextBox = new System.Windows.Forms.TextBox();
             this.newFeatureButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.saveFeaturesButton = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteSelectedButton = new System.Windows.Forms.Button();
+            this.deselectButton = new System.Windows.Forms.Button();
             this.selectDataGridColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.featureDataGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nominalDataGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,13 +52,6 @@
             this.placesDataGridColumn = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
             this.Pieces = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
             this.featureKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saveFeaturesButton = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteSelectedButton = new System.Windows.Forms.Button();
-            this.deselectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,63 +134,11 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 74);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(503, 173);
+            this.dataGridView1.Size = new System.Drawing.Size(502, 173);
             this.dataGridView1.TabIndex = 54;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter_1);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
-            // 
-            // selectDataGridColumn
-            // 
-            this.selectDataGridColumn.HeaderText = "Select";
-            this.selectDataGridColumn.Name = "selectDataGridColumn";
-            this.selectDataGridColumn.Width = 50;
-            // 
-            // featureDataGridColumn
-            // 
-            this.featureDataGridColumn.HeaderText = "Feature";
-            this.featureDataGridColumn.Name = "featureDataGridColumn";
-            // 
-            // nominalDataGridColumn
-            // 
-            this.nominalDataGridColumn.HeaderText = "Nominal";
-            this.nominalDataGridColumn.Name = "nominalDataGridColumn";
-            this.nominalDataGridColumn.Width = 50;
-            // 
-            // plusDataGridColumn
-            // 
-            this.plusDataGridColumn.HeaderText = "+";
-            this.plusDataGridColumn.Name = "plusDataGridColumn";
-            this.plusDataGridColumn.Width = 50;
-            // 
-            // minusDataGridColumn
-            // 
-            this.minusDataGridColumn.HeaderText = "-";
-            this.minusDataGridColumn.Name = "minusDataGridColumn";
-            this.minusDataGridColumn.Width = 50;
-            // 
-            // placesDataGridColumn
-            // 
-            this.placesDataGridColumn.HeaderText = "Places";
-            this.placesDataGridColumn.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.placesDataGridColumn.Name = "placesDataGridColumn";
-            this.placesDataGridColumn.Width = 50;
-            // 
-            // Pieces
-            // 
-            this.Pieces.HeaderText = "Pieces";
-            this.Pieces.Name = "Pieces";
-            this.Pieces.Width = 50;
-            // 
-            // featureKey
-            // 
-            this.featureKey.HeaderText = "Feature No.";
-            this.featureKey.Name = "featureKey";
-            this.featureKey.ReadOnly = true;
             // 
             // saveFeaturesButton
             // 
@@ -245,10 +193,65 @@
             this.deselectButton.UseVisualStyleBackColor = true;
             this.deselectButton.Click += new System.EventHandler(this.deselectButton_Click);
             // 
+            // selectDataGridColumn
+            // 
+            this.selectDataGridColumn.HeaderText = "Select";
+            this.selectDataGridColumn.Name = "selectDataGridColumn";
+            this.selectDataGridColumn.Width = 50;
+            // 
+            // featureDataGridColumn
+            // 
+            this.featureDataGridColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.featureDataGridColumn.HeaderText = "Feature";
+            this.featureDataGridColumn.Name = "featureDataGridColumn";
+            // 
+            // nominalDataGridColumn
+            // 
+            this.nominalDataGridColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nominalDataGridColumn.HeaderText = "Nominal";
+            this.nominalDataGridColumn.Name = "nominalDataGridColumn";
+            // 
+            // plusDataGridColumn
+            // 
+            this.plusDataGridColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.plusDataGridColumn.HeaderText = "+";
+            this.plusDataGridColumn.Name = "plusDataGridColumn";
+            // 
+            // minusDataGridColumn
+            // 
+            this.minusDataGridColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.minusDataGridColumn.HeaderText = "-";
+            this.minusDataGridColumn.Name = "minusDataGridColumn";
+            // 
+            // placesDataGridColumn
+            // 
+            this.placesDataGridColumn.HeaderText = "Places";
+            this.placesDataGridColumn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.placesDataGridColumn.Name = "placesDataGridColumn";
+            this.placesDataGridColumn.Width = 50;
+            // 
+            // Pieces
+            // 
+            this.Pieces.HeaderText = "Pieces";
+            this.Pieces.Name = "Pieces";
+            this.Pieces.Width = 50;
+            // 
+            // featureKey
+            // 
+            this.featureKey.HeaderText = "Feature No.";
+            this.featureKey.Name = "featureKey";
+            this.featureKey.ReadOnly = true;
+            this.featureKey.Visible = false;
+            // 
             // UserInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(526, 387);
             this.Controls.Add(this.deselectButton);
             this.Controls.Add(this.deleteSelectedButton);
@@ -284,6 +287,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Button deleteSelectedButton;
+        private System.Windows.Forms.Button deselectButton;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selectDataGridColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn featureDataGridColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nominalDataGridColumn;
@@ -292,6 +296,5 @@
         private DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn placesDataGridColumn;
         private DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn Pieces;
         private System.Windows.Forms.DataGridViewTextBoxColumn featureKey;
-        private System.Windows.Forms.Button deselectButton;
     }
 }

@@ -477,6 +477,12 @@ namespace Feature_Inspection
         private void newFeatureButton_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add();
+            int lastRow = dataGridView1.RowCount - 1;
+            //dataGridView1.Rows[lastRow].Cells[1].Selected = true;
+            dataGridView1.CurrentCell = dataGridView1.Rows[lastRow].Cells[1];
+            dataGridView1.BeginEdit(true);
+
+            
 
         }
 
