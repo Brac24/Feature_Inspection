@@ -424,7 +424,7 @@ namespace Feature_Inspection
                                                            "WHERE Feature_Key IN " + featureKey + ";"; ;*/
 
 
-                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(Features.Nominal AS varchar(10)) + ' +' + CAST(Features.Plus_Tolerance AS varchar(10)) + ' -' + CAST(Features.Minus_Tolerance AS varchar(10)) AS Range, Measured_Value  FROM ATI_FeatureInspection.dbo.Position " +
+                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(cast(Features.Nominal as decimal(7,4)) AS varchar(7)) + ' +' + CAST(cast(Features.Plus_Tolerance as decimal(7,4)) AS varchar(7)) + ' -' + CAST(cast(Features.Minus_Tolerance as decimal(7,4)) AS varchar(7)) AS Range, Measured_Value  FROM ATI_FeatureInspection.dbo.Position " +
                                    "INNER JOIN ATI_FeatureInspection.dbo.Features " +
                                    "ON Position.Feature_Key = Features.Feature_Key " +
                                    "WHERE Position.Inspection_Key_FK = " + getInspectionKey();
@@ -734,6 +734,7 @@ namespace Feature_Inspection
                     else if (!opKeyExistsInInspection())
                     {
                         insertOpKeyToInspection();
+                        
                     }
                     else if (featuresExistInPositionTable())
                     {

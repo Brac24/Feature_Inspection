@@ -314,6 +314,7 @@ namespace Feature_Inspection
 
             catch
             {
+                formLoadQuery();
                 /*
                 using (OdbcConnection conn = new OdbcConnection(connection_string))
                 {
