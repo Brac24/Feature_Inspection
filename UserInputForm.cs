@@ -61,6 +61,7 @@ namespace Feature_Inspection
             disableFeaturesAlreadyBeingMeasured();
         }
 
+
         private void validateSelectedRows()
         {
             int maxRows = dataGridView1.RowCount;

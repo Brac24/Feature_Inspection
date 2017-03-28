@@ -76,7 +76,17 @@ namespace Feature_Inspection
 
         }
 
-        
+        //The bottom two properties are to facilitate with displaying decimal values.
+        public static int valuesBeforeDecimal
+        {
+            get; set;
+        }
+
+        public static int valuesAfterDecimal
+        {
+            get; set;
+        }
+
 
         private void Close_AlternateUI(object sender, FormClosingEventArgs e)
         {
@@ -424,7 +434,12 @@ namespace Feature_Inspection
                                                            "WHERE Feature_Key IN " + featureKey + ";"; ;*/
 
 
-                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(cast(Features.Nominal as decimal(7,4)) AS varchar(7)) + ' +' + CAST(cast(Features.Plus_Tolerance as decimal(7,4)) AS varchar(7)) + ' -' + CAST(cast(Features.Minus_Tolerance as decimal(7,4)) AS varchar(7)) AS Range, Measured_Value  FROM ATI_FeatureInspection.dbo.Position " +
+                    /*string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(cast(Features.Nominal as decimal(7,4)) AS varchar(7)) + ' +' + CAST(cast(Features.Plus_Tolerance as decimal(7,4)) AS varchar(7)) + ' -' + CAST(cast(Features.Minus_Tolerance as decimal(7,4)) AS varchar(7)) AS Range, Measured_Value  FROM ATI_FeatureInspection.dbo.Position " +
+                                   "INNER JOIN ATI_FeatureInspection.dbo.Features " +
+                                   "ON Position.Feature_Key = Features.Feature_Key " +
+                                   "WHERE Position.Inspection_Key_FK = " + getInspectionKey();*/
+
+                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(Features.Nominal AS varchar(10)) + ' +' + CAST(Features.Plus_Tolerance AS varchar(10)) + ' -' + CAST(Features.Minus_Tolerance AS varchar(10)) AS Range, CAST(cast(Measured_Value as float) AS varchar(10)) FROM ATI_FeatureInspection.dbo.Position " +
                                    "INNER JOIN ATI_FeatureInspection.dbo.Features " +
                                    "ON Position.Feature_Key = Features.Feature_Key " +
                                    "WHERE Position.Inspection_Key_FK = " + getInspectionKey();
