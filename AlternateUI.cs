@@ -439,7 +439,7 @@ namespace Feature_Inspection
                                    "ON Position.Feature_Key = Features.Feature_Key " +
                                    "WHERE Position.Inspection_Key_FK = " + getInspectionKey();*/
 
-                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(Features.Nominal AS varchar(10)) + ' +' + CAST(Features.Plus_Tolerance AS varchar(10)) + ' -' + CAST(Features.Minus_Tolerance AS varchar(10)) AS Range, CAST(cast(Measured_Value as float) AS varchar(10)) FROM ATI_FeatureInspection.dbo.Position " +
+                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(Features.Nominal AS varchar(10)) + ' +' + CAST(Features.Plus_Tolerance AS varchar(10)) + ' -' + CAST(Features.Minus_Tolerance AS varchar(10)) AS Range, CAST(cast(Measured_Value as float) AS varchar(10)) AS 'Measured Value' FROM ATI_FeatureInspection.dbo.Position " +
                                    "INNER JOIN ATI_FeatureInspection.dbo.Features " +
                                    "ON Position.Feature_Key = Features.Feature_Key " +
                                    "WHERE Position.Inspection_Key_FK = " + getInspectionKey();
@@ -749,7 +749,11 @@ namespace Feature_Inspection
                     else if (!opKeyExistsInInspection())
                     {
                         insertOpKeyToInspection();
-                        
+                        olvColumn2.IsVisible = true;
+                        dataListView1.RebuildColumns();
+                        bindData();
+                        this.addFeatureButton.Focus();
+
                     }
                     else if (featuresExistInPositionTable())
                     {

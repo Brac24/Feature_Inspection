@@ -252,11 +252,11 @@ namespace Feature_Inspection
                     {
                         dataGridView1.Rows[index].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
                         col++;
-                        dataGridView1.Rows[index].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Nominal"));
+                        dataGridView1.Rows[index].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Nominal"));
                         col++;
-                        dataGridView1.Rows[index].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Plus_Tolerance"));
+                        dataGridView1.Rows[index].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Plus_Tolerance"));
                         col++;
-                        dataGridView1.Rows[index].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Minus_Tolerance"));
+                        dataGridView1.Rows[index].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Minus_Tolerance"));
                         col++;
                         dataGridView1.Rows[index].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Places"));
                         col++;
@@ -294,11 +294,11 @@ namespace Feature_Inspection
 
                             dataGridView1.Rows[row].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
                             col++;
-                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Nominal"));
+                            dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Nominal"));
                             col++;
-                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Plus_Tolerance"));
+                            dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Plus_Tolerance"));
                             col++;
-                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Minus_Tolerance"));
+                            dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Minus_Tolerance"));
                             col++;
                             dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Places"));
                             col++;
@@ -334,11 +334,11 @@ namespace Feature_Inspection
 
                             dataGridView1.Rows[row].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
                             col++;
-                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Nominal"));
+                            dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Nominal"));
                             col++;
-                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Plus_Tolerance"));
+                            dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Plus_Tolerance"));
                             col++;
-                            dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Minus_Tolerance"));
+                            dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Minus_Tolerance"));
                             col++;
                             dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Places"));
                             col++;
@@ -797,11 +797,11 @@ namespace Feature_Inspection
                 {
                     dataGridView1.Rows[row].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
                     col++;
-                    dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Nominal"));
+                    dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Nominal"));
                     col++;
-                    dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Plus_Tolerance"));
+                    dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Plus_Tolerance"));
                     col++;
-                    dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Minus_Tolerance"));
+                    dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Minus_Tolerance"));
                     col++;
                     dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Places"));
                     col++;
@@ -850,11 +850,11 @@ namespace Feature_Inspection
 
                         dataGridView1.Rows[row].Cells[col].Value = reader.GetString(reader.GetOrdinal("Feature_Name"));
                         col++;
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Nominal"));
+                        dataGridView1.Rows[row].Cells[col].Value = (float) reader.GetDouble(reader.GetOrdinal("Nominal"));
                         col++;
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Plus_Tolerance"));
+                        dataGridView1.Rows[row].Cells[col].Value = (float)reader.GetDouble(reader.GetOrdinal("Plus_Tolerance"));
                         col++;
-                        dataGridView1.Rows[row].Cells[col].Value = reader.GetDecimal(reader.GetOrdinal("Minus_Tolerance"));
+                        dataGridView1.Rows[row].Cells[col].Value = (float) reader.GetDouble(reader.GetOrdinal("Minus_Tolerance"));
                         col++;
                         dataGridView1.Rows[row].Cells[col].Value = reader.GetInt32(reader.GetOrdinal("Places"));
                         col++;
