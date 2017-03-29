@@ -47,7 +47,7 @@ namespace Feature_Inspection
         public AlternateUI()
         {
             InitializeComponent();
-            base.FormClosing += Close_AlternateUI;
+            
         }
 
         /// <summary>
@@ -63,10 +63,11 @@ namespace Feature_Inspection
             jobNumberLabelValue.Text = null;
             opNumberLabelValue.Text = null;
             statusLabelValue.Text = null;
-            
+
 
             // event handlers
-            
+
+            this.FormClosing += Close_AlternateUI;
             textBox1.KeyPress += checkEnterKeyPressed;
             textBox1.Validating += Validating;
             textBox1.Validated += Validated;
@@ -823,7 +824,13 @@ namespace Feature_Inspection
                 MessageBoxButtons button = MessageBoxButtons.OK;
                 DialogResult result;
 
-                result = MessageBox.Show(message, caption, button);
+                //If user has clicked one of these 2 buttons then ask to press enter first
+                //else it means they probably pressed the minimize or close button
+                if(this.addFeatureButton.Focused || this.finishInspectionButton.Focused)
+                {
+                    result = MessageBox.Show(message, caption, button);
+                }
+                
             }
             else if(validateValidOpKey(opNumberLabelValue))
             {
