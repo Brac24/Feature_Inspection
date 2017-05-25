@@ -113,6 +113,7 @@
             this.tableLayoutPanel1.SetRowSpan(this.dataListView1, 6);
             this.dataListView1.Size = new System.Drawing.Size(530, 444);
             this.dataListView1.TabIndex = 10;
+            this.dataListView1.UseCellFormatEvents = true;
             this.dataListView1.UseCompatibleStateImageBehavior = false;
             this.dataListView1.View = System.Windows.Forms.View.Details;
             this.dataListView1.AfterCreatingGroups += new System.EventHandler<BrightIdeasSoftware.CreateGroupsEventArgs>(this.dataListView1_AfterCreatingGroups);
@@ -120,6 +121,8 @@
             this.dataListView1.CellEditFinished += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditFinished);
             this.dataListView1.CellEditFinishing += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditFinishing);
             this.dataListView1.CellEditValidating += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditValidating);
+            this.dataListView1.FormatCell += new System.EventHandler<BrightIdeasSoftware.FormatCellEventArgs>(this.dataListView1_FormatCell);
+            this.dataListView1.FormatRow += new System.EventHandler<BrightIdeasSoftware.FormatRowEventArgs>(this.dataListView1_FormatRow);
             this.dataListView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.dataListView1_ColumnWidthChanged);
             // 
             // olvColumn1
@@ -351,7 +354,6 @@
             this.Text = "AlternateUI";
             this.Load += new System.EventHandler(this.AlternateUI_Load);
             this.Click += new System.EventHandler(this.AlternateUI_Click);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AlternateUI_MouseClick);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListView1)).EndInit();

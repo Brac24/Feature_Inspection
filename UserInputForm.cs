@@ -190,7 +190,7 @@ namespace Feature_Inspection
                 OdbcCommand comm = new OdbcCommand(query, conn);
                 OdbcDataReader reader = comm.ExecuteReader();
 
-                while (reader.Read())
+                while (reader.Read()) 
                 {
                     currentFeatures.Add(reader.GetInt32(reader.GetOrdinal("Feature_Key")));
                 }
@@ -631,8 +631,6 @@ namespace Feature_Inspection
                                                   dataGridView1.Rows[featureRowsChanged[i]].Cells[4].Value + ",'" + dataGridView1.Rows[featureRowsChanged[i]].Cells[1].Value + "'," +
                                                   dataGridView1.Rows[featureRowsChanged[i]].Cells[5].Value + ");\n";
                     }
-
-
 
                     OdbcCommand connCommand = new OdbcCommand(query, conn);
                     connCommand.ExecuteNonQuery();

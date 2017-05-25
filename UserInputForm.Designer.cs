@@ -37,13 +37,6 @@
             this.partNoTextBox = new System.Windows.Forms.TextBox();
             this.newFeatureButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.saveFeaturesButton = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteSelectedButton = new System.Windows.Forms.Button();
-            this.deselectButton = new System.Windows.Forms.Button();
             this.selectDataGridColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.featureDataGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nominalDataGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +45,13 @@
             this.placesDataGridColumn = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
             this.Pieces = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
             this.featureKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFeaturesButton = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteSelectedButton = new System.Windows.Forms.Button();
+            this.deselectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,59 +140,6 @@
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter_1);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             // 
-            // saveFeaturesButton
-            // 
-            this.saveFeaturesButton.Location = new System.Drawing.Point(342, 254);
-            this.saveFeaturesButton.Name = "saveFeaturesButton";
-            this.saveFeaturesButton.Size = new System.Drawing.Size(86, 23);
-            this.saveFeaturesButton.TabIndex = 72;
-            this.saveFeaturesButton.Text = "Save Features";
-            this.saveFeaturesButton.UseVisualStyleBackColor = true;
-            this.saveFeaturesButton.Click += new System.EventHandler(this.saveFeaturesButton_Click);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Feature";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nominal";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "+";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "-";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 50;
-            // 
-            // deleteSelectedButton
-            // 
-            this.deleteSelectedButton.Location = new System.Drawing.Point(175, 254);
-            this.deleteSelectedButton.Name = "deleteSelectedButton";
-            this.deleteSelectedButton.Size = new System.Drawing.Size(102, 23);
-            this.deleteSelectedButton.TabIndex = 73;
-            this.deleteSelectedButton.Text = "Delete Selected";
-            this.deleteSelectedButton.UseVisualStyleBackColor = true;
-            this.deleteSelectedButton.Click += new System.EventHandler(this.deleteSelectedButton_Click);
-            // 
-            // deselectButton
-            // 
-            this.deselectButton.Location = new System.Drawing.Point(12, 255);
-            this.deselectButton.Name = "deselectButton";
-            this.deselectButton.Size = new System.Drawing.Size(57, 37);
-            this.deselectButton.TabIndex = 74;
-            this.deselectButton.Text = "Deselect All";
-            this.deselectButton.UseVisualStyleBackColor = true;
-            this.deselectButton.Click += new System.EventHandler(this.deselectButton_Click);
-            // 
             // selectDataGridColumn
             // 
             this.selectDataGridColumn.HeaderText = "Select";
@@ -247,11 +194,65 @@
             this.featureKey.ReadOnly = true;
             this.featureKey.Visible = false;
             // 
+            // saveFeaturesButton
+            // 
+            this.saveFeaturesButton.Location = new System.Drawing.Point(342, 254);
+            this.saveFeaturesButton.Name = "saveFeaturesButton";
+            this.saveFeaturesButton.Size = new System.Drawing.Size(86, 23);
+            this.saveFeaturesButton.TabIndex = 72;
+            this.saveFeaturesButton.Text = "Save Features";
+            this.saveFeaturesButton.UseVisualStyleBackColor = true;
+            this.saveFeaturesButton.Click += new System.EventHandler(this.saveFeaturesButton_Click);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Feature";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nominal";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "+";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "-";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 50;
+            // 
+            // deleteSelectedButton
+            // 
+            this.deleteSelectedButton.Location = new System.Drawing.Point(175, 254);
+            this.deleteSelectedButton.Name = "deleteSelectedButton";
+            this.deleteSelectedButton.Size = new System.Drawing.Size(102, 23);
+            this.deleteSelectedButton.TabIndex = 73;
+            this.deleteSelectedButton.Text = "Delete Selected";
+            this.deleteSelectedButton.UseVisualStyleBackColor = true;
+            this.deleteSelectedButton.Click += new System.EventHandler(this.deleteSelectedButton_Click);
+            // 
+            // deselectButton
+            // 
+            this.deselectButton.Location = new System.Drawing.Point(12, 255);
+            this.deselectButton.Name = "deselectButton";
+            this.deselectButton.Size = new System.Drawing.Size(57, 37);
+            this.deselectButton.TabIndex = 74;
+            this.deselectButton.Text = "Deselect All";
+            this.deselectButton.UseVisualStyleBackColor = true;
+            this.deselectButton.Click += new System.EventHandler(this.deselectButton_Click);
+            // 
             // UserInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(526, 387);
             this.Controls.Add(this.deselectButton);
             this.Controls.Add(this.deleteSelectedButton);
