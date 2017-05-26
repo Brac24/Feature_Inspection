@@ -104,6 +104,17 @@ namespace Feature_Inspection
             Application.Exit();
         }
 
+        /// <summary>
+        /// Queries inspection status of an inpsection and and puts the value on to the form
+        /// </summary>
+        /// <remarks>
+        /// Modifies:
+        /// Form Label Text: statusLabelValue.Text
+        /// 
+        /// Responsibilities:
+        /// 1) Query inspection status for current inspection
+        /// 2) Put the value on to the form in the text field
+        /// </remarks>
         private void queryInspectionStatus()
         {
             string status = null;
@@ -136,7 +147,7 @@ namespace Feature_Inspection
 
         }
 
-        //Returns whether an inspection exists for a specifif OpKey
+        //Returns whether an inspection exists for a specific OpKey
         public bool getInspectionExists()
         {
             return inspectionExists;
@@ -146,10 +157,12 @@ namespace Feature_Inspection
         {
             return FeaturesExistInPosition;
         }
+
         public int getOpKey()
         {
             return Int32.Parse(OpKeyGlobal);
         }
+
         public string getOpService()
         {
             return OpService;
@@ -265,6 +278,10 @@ namespace Feature_Inspection
 
         }
 
+        /// <summary>
+        /// Queries an inpsectionKey based on the current opKey and sets 
+        /// The InspectionKeyGlobal variable to the inspection key that was returned
+        /// </summary>
         private void queryInspectionKeyFromInspectionTable()
         {
             try
@@ -275,8 +292,10 @@ namespace Feature_Inspection
 
                     string getInspectionKey = "SELECT Inspection_Key FROM ATI_FeatureInspection.dbo.Inspection\n" +
                                              "WHERE Op_Key=" + OpKeyGlobal + ";";
+
                     OdbcCommand conncommand2 = new OdbcCommand(getInspectionKey, conn);
                     OdbcDataReader reader1 = conncommand2.ExecuteReader();
+
                     while (reader1.Read())
                     {
                         InspectionKeyGlobal = reader1.GetInt32(reader1.GetOrdinal("Inspection_Key"));
@@ -315,6 +334,16 @@ namespace Feature_Inspection
 
         }
 
+        /// <summary>
+        /// Checks if an inpsection exists for a particular opkey that was entered
+        /// </summary>
+        /// <returns>
+        /// True: if it finds an inspection for the opkey
+        /// False: If it does not or if the status is "Complete"
+        /// </returns>
+        /// <remarks>
+        /// SQL Query: retrieve Op_Key, Inspection_Key, status from Inspection table
+        /// </remarks>
         private bool opKeyExistsInInspection()
         {
             //Query checking if an inspection for an opkey exists in the Inspection table
@@ -349,6 +378,14 @@ namespace Feature_Inspection
 
             return inspectionExists;
         }
+
+        /// <summary>
+        /// This will insert the current opKey, jobNumber, partNumber, opService to the operation table
+        /// </summary>
+        /// <remarks>
+        /// Responsibilities:
+        /// 1) Insert opkey, jobnum, partnum, opservice to operation table
+        /// </remarks>
         private void insertOpKeyToOperation()
         {
             try
@@ -371,6 +408,13 @@ namespace Feature_Inspection
 
         }
 
+        /// <summary>
+        /// Inserts opkey value to inspection table
+        /// </summary>
+        /// <remarks>
+        /// Responsibilities:
+        /// 1) Insert opKey value and hard coded "Incomplete" status value to inspection table
+        /// </remarks>
         private void insertOpKeyToInspection()
         {
             try
@@ -393,7 +437,20 @@ namespace Feature_Inspection
 
         }
 
-
+        /// <summary>
+        /// Queries all columns from the Operation table based on a particular opKey
+        /// And checks if the query returns any data
+        /// </summary>
+        /// <returns>
+        /// True: If query returns data
+        /// False: If it does not
+        /// </returns>
+        /// <remarks>
+        /// Responsibilities:
+        /// 1) Query Operation table based on OpKey
+        /// 2) Check the query returns data
+        /// 3) If it did then return true else false
+        /// </remarks>
         private bool opKeyExistsInOperationTable()
         {
             bool opExists = false;
@@ -405,7 +462,6 @@ namespace Feature_Inspection
                 {
                     conn.Open();
 
-
                     string query2 = "SELECT *\n" +
                                     "FROM ATI_FeatureInspection.dbo.Operation\n" +
                                     "WHERE Op_Key = '" + OpKeyGlobal + "';";
@@ -413,8 +469,8 @@ namespace Feature_Inspection
                     OdbcCommand com2 = new OdbcCommand(query2, conn);
                     OdbcDataReader reader2 = com2.ExecuteReader();
 
-
-                    while (reader2.Read())
+                    //Check that query returned data
+                    if(reader2.Read())
                     {
                         opExists = true;
                     }
@@ -422,14 +478,14 @@ namespace Feature_Inspection
             }
             catch
             {
-                //MessageBox.Show("Please Enter a valid opkey");
+                //TODO: Add catch condition action
             }
-
 
             return opExists;
         }
 
         /// <summary>
+        /// NOT CALLING THIS FUNCTION AS OF NOW. NO USE FOR IT SO FAR
         /// Queries the dimensions and measurement for a given inspectionKey from FeatureInspection database and puts each in to individual variables Nominal, PlusTol, MinusTol, and MeasuredValue
         /// </summary>
         /// <remarks>
@@ -484,22 +540,16 @@ namespace Feature_Inspection
 
         }
 
-        public void FindOutOfToleranceMeasuredValues()
-        {
-            bool exceedsPlusTol = false;
-            bool belowMinusTol = false;
-
-
-        }
 
         /// <summary>
-        /// Binds data from SQL Server to DataListView Object
+        /// Binds queried data from SQL Server to DataListView Object.
         /// </summary>
+        /// <remarks>
+        /// SQL Query: INNER JOIN of Position and Features table ON the same FeatureKey with the current inspectionKey
+        /// </remarks>
         private void bindData()
         {
             int maxRows;
-
-            SetToleranceVariablesAndMeasuredVariable();
 
             try
             {
@@ -507,17 +557,8 @@ namespace Feature_Inspection
                 using (OdbcCommand com = conn.CreateCommand())
                 using (OdbcDataAdapter adapter = new OdbcDataAdapter(com))
                 {
-                    /*string query = "SELECT Feature_Name, Nominal, Plus_Tolerance, Minus_Tolerance \n" +
-                                                           "FROM ATI_FeatureInspection.dbo.Features \n" +
-                                                           "WHERE Feature_Key IN " + featureKey + ";"; ;*/
 
-
-                    /*string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(cast(Features.Nominal as decimal(7,4)) AS varchar(7)) + ' +' + CAST(cast(Features.Plus_Tolerance as decimal(7,4)) AS varchar(7)) + ' -' + CAST(cast(Features.Minus_Tolerance as decimal(7,4)) AS varchar(7)) AS Range, Measured_Value  FROM ATI_FeatureInspection.dbo.Position " +
-                                   "INNER JOIN ATI_FeatureInspection.dbo.Features " +
-                                   "ON Position.Feature_Key = Features.Feature_Key " +
-                                   "WHERE Position.Inspection_Key_FK = " + getInspectionKey();*/
-
-                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(Features.Nominal AS varchar(10)) + ' +' + CAST(Features.Plus_Tolerance AS varchar(10)) + ' -' + CAST(Features.Minus_Tolerance AS varchar(10)) AS Range, CAST(cast(Measured_Value as float) AS varchar(10)) AS 'Measured Value' FROM ATI_FeatureInspection.dbo.Position " +
+                    string query = "SELECT   Position.Feature_Key, Piece_ID, Place, Features.Feature_Name, CAST(Features.Nominal AS varchar(10)) + ' +' + CAST(Features.Plus_Tolerance AS varchar(10)) + ' -' + CAST(Features.Minus_Tolerance AS varchar(10)) AS Dimensions, CAST(cast(Measured_Value as float) AS varchar(10)) AS 'Measured Value' FROM ATI_FeatureInspection.dbo.Position " +
                                    "INNER JOIN ATI_FeatureInspection.dbo.Features " +
                                    "ON Position.Feature_Key = Features.Feature_Key " +
                                    "WHERE Position.Inspection_Key_FK = " + getInspectionKey() + "ORDER BY Piece_ID, Place";
@@ -525,12 +566,9 @@ namespace Feature_Inspection
                     com.CommandText = query;
                     DataTable t = new DataTable();
                     adapter.Fill(t);
-
                     dataListView1.DataSource = null;
                     dataListView1.DataSource = t;
                     maxRows = t.Rows.Count;
-
-
 
                 }
             }
@@ -543,20 +581,28 @@ namespace Feature_Inspection
 
         }
 
-        //Opens the user input form and reopens main form after closed
+        /// <summary>
+        /// Opens the user input form and reopens main form after closed
+        /// </summary>
         private void openUserInputForm()
         {
-            this.Hide();
+            this.Hide(); //Hides the AlternateUI Form
+
             //Form userInput = new UserInputForm();
-            UserInputForm userInput = new UserInputForm();
-            userInput.ShowDialog();
+            UserInputForm userInput = new UserInputForm(); //Create UserInputForm object
+            userInput.ShowDialog();                        //Invoke the ShowDialog to show the instance of the form
+
+            //Checking if user clicked the Submit button on the UserInputForm 
             if (userInput.getSubmitClicked())
             {
-                featureKey = "(" + String.Join(",", userInput.getFeatureKeysSelected()) + ")";
+                featureKey = "(" + String.Join(",", userInput.getFeatureKeysSelected()) + ")"; //Gets the selected features that user chose and puts in to one featureKey string
 
                 FIRST_TIME_CREATING_GROUPS = true; //Needs to be reset here after adding a new feature to the inspection. This ensures it does not order by feature key
-                bindData();
-                textBox1.Focus();
+
+                bindData(); //Bind the current data for that inspection will include features just added from UserInputForm
+
+                textBox1.Focus(); //Put focus on the opKey text box
+
 
 
             }
@@ -633,6 +679,16 @@ namespace Feature_Inspection
 
         }
 
+        /// <summary>
+        /// Event handler that controls how the dataListView will order the groups
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <remarks>
+        /// Responsibilities:
+        /// 1) Control how the groups will be ordered
+        /// 2) Disable all columns from being editable except for Measured Value column
+        /// </remarks>
         private void dataListView1_BeforeCreatingGroups(object sender, BrightIdeasSoftware.CreateGroupsEventArgs e)
         {
 
@@ -647,18 +703,6 @@ namespace Feature_Inspection
                 dataListView1.AlwaysGroupByColumn = dataListView1.SelectedColumn;
             }
 
-            /*
-            int groupNumber = 0;
-            foreach(BrightIdeasSoftware.OLVGroup group in e.Groups)
-            {
-                foreach(OLVListItem item in group.Items)
-                {
-                     rowObject = item.RowObject as DataListView;
-                    groupNumber += rowObject.
-                }
-            }
-            */
-            // e.Canceled = true;
 
             dataListView1.AutoResizeColumns();
 
@@ -682,22 +726,6 @@ namespace Feature_Inspection
 
             FIRST_TIME_CREATING_GROUPS = false;
 
-            /*
-            this.dataListView1.AllColumns[4].GroupKeyGetter = delegate (object rowObject)
-            {
-                FeatureParamStruct param = (FeatureParamStruct)rowObject;
-                return String.Join(",", param.ToString());
-            };
-
-            
-            this.dataListView1.AllColumns[4].GroupKeyToTitleConverter = delegate (object groupkey)
-            {
-
-
-                return groupkey.ToString();
-            };
-            
-            */
         }
 
         private void dataListView1_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
@@ -706,10 +734,18 @@ namespace Feature_Inspection
 
         }
 
-
+        /// <summary>
+        /// Event handler that updates the Measured Value in the Position table 
+        /// Updates the cell that is coming out of focus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <remarks>
+        /// Event is triggered when cell comes out of focus
+        /// </remarks>
         private void dataListView1_CellEditValidating(object sender, BrightIdeasSoftware.CellEditEventArgs e)
         {
-
+            //Try updating the table with the new Measured Value input by the user
             try
             {
                 using (OdbcConnection conn = new OdbcConnection(connection_string))
@@ -725,30 +761,26 @@ namespace Feature_Inspection
 
                 }
             }
+            //In NAN tell user to input a number
             catch (FormatException err)
             {
                 MessageBox.Show("Please insert a number ", err.Message);
                 e.NewValue = e.Value;
 
-
-                using (OdbcConnection conn = new OdbcConnection(connection_string))
-                {
-
-                    conn.Open();
-                    string query = "UPDATE ATI_FeatureInspection.dbo.Position SET Measured_Value= " + Decimal.Parse(e.Value.ToString())
-                                   + " WHERE Feature_Key=" + dataListView1.AllColumns[0].GetValue(e.RowObject) + " AND Piece_ID = " + dataListView1.AllColumns[1].GetValue(e.RowObject) +
-                                      "AND Place = " + dataListView1.AllColumns[2].GetValue(e.RowObject) + " ;";
-
-                    OdbcCommand conncommand = new OdbcCommand(query, conn);
-                    conncommand.ExecuteNonQuery();
-                    e.NewValue = Decimal.Parse(e.Value.ToString());
-
-                    dataListView1.Refresh();
-                    dataListView1.RefreshSelectedObjects();
-                }
+                dataListView1.Refresh();
+                dataListView1.RefreshSelectedObjects();
             }
         }
 
+        /// <summary>
+        /// Event triggered after CellEditValidating that checks once more if value in Measured value is valid
+        /// If it is not it will revert to the last value the cell had
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <remarks>
+        /// Event triggered after CellEditValidating
+        /// </remarks>
         private void dataListView1_CellEditFinishing(object sender, BrightIdeasSoftware.CellEditEventArgs e)
         {
             //Will check if the value in the measured value column is a number or not
@@ -839,7 +871,9 @@ namespace Feature_Inspection
                     }
                     else if (!opKeyExistsInInspection())
                     {
+                        //TODO: When Binding data from here it grabs the previous inspection not the current one being entered. Figure it out
                         insertOpKeyToInspection();
+                        queryInspectionKeyFromInspectionTable();
                         olvColumn2.IsVisible = true;
                         dataListView1.RebuildColumns();
                         bindData();
@@ -1037,11 +1071,7 @@ namespace Feature_Inspection
                 }
                 //valueInToleranceIndex++;
 
-                if (valueInToleranceIndex >= valueInTolerance.Count)
-                {
-                    //dataListView1.UseCellFormatEvents = false;
-                    valueInToleranceIndex = 0;
-                }
+                
 
             }
             //Will parse the Range column and split each value to be able to check for tolerance for current row

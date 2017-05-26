@@ -143,7 +143,7 @@
             this.olvColumn2.AspectName = "Piece_ID";
             this.olvColumn2.DisplayIndex = 1;
             this.olvColumn2.IsVisible = false;
-            this.olvColumn2.Text = "#";
+            this.olvColumn2.Text = "Part #";
             // 
             // panel1
             // 
