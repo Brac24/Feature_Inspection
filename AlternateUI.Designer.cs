@@ -123,7 +123,6 @@
             this.dataListView1.CellEditValidating += new BrightIdeasSoftware.CellEditEventHandler(this.dataListView1_CellEditValidating);
             this.dataListView1.FormatCell += new System.EventHandler<BrightIdeasSoftware.FormatCellEventArgs>(this.dataListView1_FormatCell);
             this.dataListView1.FormatRow += new System.EventHandler<BrightIdeasSoftware.FormatRowEventArgs>(this.dataListView1_FormatRow);
-            this.dataListView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.dataListView1_ColumnWidthChanged);
             // 
             // olvColumn1
             // 
@@ -351,9 +350,8 @@
             this.MaximumSize = new System.Drawing.Size(850, 1050);
             this.MinimumSize = new System.Drawing.Size(450, 350);
             this.Name = "AlternateUI";
-            this.Text = "AlternateUI";
+            this.Text = "Feature Inspection";
             this.Load += new System.EventHandler(this.AlternateUI_Load);
-            this.Click += new System.EventHandler(this.AlternateUI_Click);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListView1)).EndInit();

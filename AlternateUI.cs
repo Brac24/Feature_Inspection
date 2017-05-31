@@ -12,7 +12,7 @@ using BrightIdeasSoftware;
 using System.Speech.Synthesis;
 
 /*ALL TABLES REFER TO THE ATI_FeatureInspection Database */
-//THIS IS THE similarWithDifferentDataTables BRANCH
+
 namespace Feature_Inspection
 {
     public partial class AlternateUI : Form
@@ -32,24 +32,19 @@ namespace Feature_Inspection
 
         SpeechSynthesizer synth = new SpeechSynthesizer();
 
-        ListViewItem currentInspection;
-
         string[] inspectionValues = new string[7];  // This will contain info from one of the queried values. Is used as input to currentInspection ListViewItem
         bool newInspection = false;
         public static bool inspectionExists = false; //Does an inspection already exist for a specific opkey? Checks the Inpsection table
-        bool submit;
+
         List<DataGridViewRow> featureData = new List<DataGridViewRow>();
         List<bool> valueInTolerance = new List<bool>();
 
         string featureKey;
 
-        float Nominal;
+        float Nominal; 
         float PlusTol;
         float MinusTol;
         float MeasuredValue;
-
-        int valueInToleranceIndex = 0;
-
 
         /// <summary>
         /// Default constructor
@@ -228,6 +223,14 @@ namespace Feature_Inspection
             return empty;
         }
 
+        /// <summary>
+        /// Queries the part number, job number, operation service number for a particular opkey
+        /// and pushes this information to the their corresponding label text in the form
+        /// </summary>
+        /// <param name="opkey"></param>
+        /// <remarks>
+        /// SQL Query: INNER JOIN between Job and Job_Operation table on Job numbers for a specific opkey or Job_Operation from PRODUCTION DB
+        /// </remarks>
         private void getInfoFromOpKeyEntry(TextBox opkey)
         {
             try
@@ -620,10 +623,8 @@ namespace Feature_Inspection
             Show();
 
         }
-        private void newInspecButton_Click(object sender, EventArgs e)
-        {
-            //openUserInputForm();
-        }
+
+       
 
         /// <summary>
         /// Event handler that checks an opkey and opens UserInputForm
@@ -659,11 +660,6 @@ namespace Feature_Inspection
                 }
             }
 
-
-        }
-
-        private void submitFeatures()
-        {
 
         }
 
@@ -728,11 +724,7 @@ namespace Feature_Inspection
 
         }
 
-        private void dataListView1_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
-        {
-            List<float> measuredValues = new List<float>();
-
-        }
+        
 
         /// <summary>
         /// Event handler that updates the Measured Value in the Position table 
@@ -797,6 +789,12 @@ namespace Feature_Inspection
 
         }
 
+        /// <summary>
+        /// Event handler triggered by the clicking the Finish Inspectio button and updates the status of an
+        /// inspection to "Complete"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void finishInspectionButton_Click(object sender, EventArgs e)
         {
             using (OdbcConnection conn = new OdbcConnection(connection_string))
@@ -860,6 +858,7 @@ namespace Feature_Inspection
 
                     FeaturesExistInPosition = false;
                     getInfoFromOpKeyEntry(textBox1);
+
                     if (opNumberLabelValue.Text.Equals(String.Empty))
                     {
                         invalidOpKeyMessage();
@@ -871,9 +870,9 @@ namespace Feature_Inspection
                     }
                     else if (!opKeyExistsInInspection())
                     {
-                        //TODO: When Binding data from here it grabs the previous inspection not the current one being entered. Figure it out
+                        
                         insertOpKeyToInspection();
-                        queryInspectionKeyFromInspectionTable();
+                        queryInspectionKeyFromInspectionTable(); //Grab newly inserted inspectionKey
                         olvColumn2.IsVisible = true;
                         dataListView1.RebuildColumns();
                         bindData();
@@ -925,6 +924,12 @@ namespace Feature_Inspection
             }
         }
 
+        /// <summary>
+        /// Mainly a check to see if user is closing the form 
+        /// or user clicked one of the form buttons without first pressing enter on the opkey
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Validating(object sender, CancelEventArgs e)
         {
 
@@ -957,7 +962,8 @@ namespace Feature_Inspection
                 }
 
             }
-            else if (validateValidOpKey(opNumberLabelValue))
+            //Leave this for proper function
+            else if(validateValidOpKey(opNumberLabelValue))
             {
 
             }
@@ -1006,23 +1012,9 @@ namespace Feature_Inspection
 
             result = MessageBox.Show(message, caption, button);
         }
-        /*
-        private void LabelValue_TextChanged(object sender, EventArgs e)
-        {
-            //If invalid opkey
-            if(!validateValidOpKey(sender))
-            {
-                invalidOpKeyMessage(); //Tell user that it is invalid
-            }
-            
-        }
-        */
+        
 
-        private void AlternateUI_Click(object sender, EventArgs e)
-        {
-
-        }
-
+  
         private void dataListView1_AfterCreatingGroups(object sender, CreateGroupsEventArgs e)
         {
             dataListView1.AutoResizeColumns();
@@ -1042,7 +1034,14 @@ namespace Feature_Inspection
             //e.Item.BackColor = Color.Red;
         }
 
-        List<double> values = new List<double>();
+        List<double> values = new List<double>(); //List of values that check for out of tolerance
+
+        /// <summary>
+        /// This event handler checks the measured values and colors the values red if they are out of tolerance
+        /// for its given row
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataListView1_FormatCell(object sender, FormatCellEventArgs e)
         {
             double measuredValue;
@@ -1053,53 +1052,53 @@ namespace Feature_Inspection
 
             int index = e.DisplayIndex;
 
-
-            //SetToleranceVariablesAndMeasuredVariable();
-
-          
+            //Column index 5 is Measured Values column
             if (e.ColumnIndex == 5)
             {
                 measuredValue = double.Parse(e.CellValue.ToString()); //Get measured value to check for tolerance
 
-                //
-                //measuredStringValue = e.CellValue.ToString();
-                //measuredValue = float.Parse(measuredStringValue);
+                //If value is not in tolerance color value red
                 if (!ValueInTolerance(values[0], values[1], values[2], measuredValue))
                 {
                     e.SubItem.ForeColor = Color.Red;
                     values.Clear();
                 }
-                //valueInToleranceIndex++;
-
-                
-
+                                
             }
+
             //Will parse the Range column and split each value to be able to check for tolerance for current row
             else if(e.ColumnIndex == 4)
             {
                 string tolerance = e.CellValue.ToString();   //Turn range column cell to a string
                 
-
                  substring = tolerance.Split(new char[] { '+', '-' },StringSplitOptions.RemoveEmptyEntries).ToList<string>(); //Split the string into 3 seperate string values
 
-                
                 values = substring.Select(double.Parse).ToList(); //Now convert the list to a list of floats. index 0: nominal, index 1: plus, index 2: minus
 
             }
             
-
         }
 
-        private bool ValueInTolerance(double nominal, double plus, double minus, double measured)
+        /// <summary>
+        /// Will check if a value is in tolerance
+        /// </summary>
+        /// <param name="nominal">Nominal value</param>
+        /// <param name="plus">Plus tolerance</param>
+        /// <param name="minus">Minus tolerance</param>
+        /// <param name="measured">Measured value being tested</param>
+        /// <returns>Returns if in tolerance</returns>
+        public bool ValueInTolerance(double nominal, double plus, double minus, double measured)
         {
             double max = nominal + plus;
-            double test = 1.3 + .3;
+
             double min = nominal - minus;
 
+            //If greateer than the max value
             if (measured > max)
             {
                 return false;
             }
+            //If greater than the min value
             else if (measured < min)
             {
                 return false;
@@ -1108,18 +1107,5 @@ namespace Feature_Inspection
                 return true;
         }
 
-        /*    private void dataListView1_FormatCell(object sender, FormatCellEventArgs e)
-            {
-                DataTable t = new DataTable();
-
-                t = (DataTable) this.dataListView1.DataSource;
-
-                if(Int32.Parse(t.Rows[e.RowIndex].ItemArray[4].ToString()) < Int32.Parse(t.Rows[e.RowIndex].ItemArray[7].ToString()))
-                {
-
-                }
-
-            }
-            */
     }
 }
