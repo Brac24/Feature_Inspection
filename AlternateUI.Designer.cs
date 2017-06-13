@@ -76,7 +76,6 @@
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 5);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
@@ -87,7 +86,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.40014F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.30733F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.292532F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(782, 459);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1069, 459);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -111,7 +110,7 @@
             this.dataListView1.Location = new System.Drawing.Point(152, 3);
             this.dataListView1.Name = "dataListView1";
             this.tableLayoutPanel1.SetRowSpan(this.dataListView1, 6);
-            this.dataListView1.Size = new System.Drawing.Size(530, 444);
+            this.dataListView1.Size = new System.Drawing.Size(774, 444);
             this.dataListView1.TabIndex = 10;
             this.dataListView1.UseCellFormatEvents = true;
             this.dataListView1.UseCompatibleStateImageBehavior = false;
