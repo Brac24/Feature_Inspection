@@ -19,7 +19,7 @@ namespace Feature_Inspection
     {
 
 
-        string connection_string = "DSN=unipointDB;UID=jbread;PWD=Cloudy2Day";
+        private readonly string connection_string = "DSN=unipointDB;UID=jbread;PWD=Cloudy2Day";
         public static string OpKeyGlobal;
         public static string PartNumGlobal;
         public static string JobNumGlobal;
