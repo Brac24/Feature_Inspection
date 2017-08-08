@@ -28,38 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.aTIFeatureInspectionDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aTI_FeatureInspectionDataSet = new Feature_Inspection.ATI_FeatureInspectionDataSet();
-            ((System.ComponentModel.ISupportInitialize)(this.aTIFeatureInspectionDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aTI_FeatureInspectionDataSet)).BeginInit();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // aTIFeatureInspectionDataSetBindingSource
+            // splitContainer1
             // 
-            this.aTIFeatureInspectionDataSetBindingSource.DataSource = this.aTI_FeatureInspectionDataSet;
-            this.aTIFeatureInspectionDataSetBindingSource.Position = 0;
-            // 
-            // aTI_FeatureInspectionDataSet
-            // 
-            this.aTI_FeatureInspectionDataSet.DataSetName = "ATI_FeatureInspectionDataSet";
-            this.aTI_FeatureInspectionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainer1.Size = new System.Drawing.Size(893, 622);
+            this.splitContainer1.SplitterDistance = 120;
+            this.splitContainer1.TabIndex = 0;
             // 
             // TweakUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 622);
+            this.Controls.Add(this.splitContainer1);
             this.Name = "TweakUI";
             this.Text = "TweakUI";
-            ((System.ComponentModel.ISupportInitialize)(this.aTIFeatureInspectionDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aTI_FeatureInspectionDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource aTIFeatureInspectionDataSetBindingSource;
-        private ATI_FeatureInspectionDataSet aTI_FeatureInspectionDataSet;
+
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

@@ -85,6 +85,7 @@ namespace Feature_Inspection
         //The bottom two properties are to facilitate with displaying decimal values.
         public static int valuesBeforeDecimal
         {
+           
             get; set;
         }
 
@@ -897,7 +898,7 @@ namespace Feature_Inspection
                         bindData();
                         this.addFeatureButton.Focus();
                     }
-
+                    
 
                     queryInspectionKeyFromInspectionTable();
                     queryInspectionStatus();
