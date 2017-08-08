@@ -1,4 +1,4 @@
-﻿namespace Feature_Inspection
+﻿namespace Feature_Inspection_Form
 {
     partial class Form4
     {
@@ -28,69 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint55 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4307D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint56 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4306D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint57 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint58 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint59 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint60 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.43D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint61 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4296D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint62 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint63 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4299D);
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint64 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint65 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint66 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint67 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint68 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint69 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint70 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint71 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint72 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint73 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint74 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint75 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint76 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint77 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint78 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint79 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint80 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint81 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint82 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4307D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint83 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4306D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint84 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint85 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint86 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint87 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.43D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint88 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4296D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint89 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint90 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4299D);
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint91 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint92 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint93 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint94 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint95 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint96 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint97 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint98 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint99 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint100 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint101 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint102 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint103 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint104 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint105 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint106 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint107 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint108 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4307D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4306D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.43D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4296D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4299D);
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint10 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint11 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint12 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint13 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint14 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint15 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint16 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint17 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint18 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint19 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint20 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint21 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint22 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint23 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint24 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint25 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint26 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint27 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint28 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4307D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint29 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4306D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint30 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint31 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint32 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint33 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.43D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint34 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4296D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint35 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4301D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint36 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4299D);
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint37 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint38 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint39 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint40 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint41 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint42 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint43 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint44 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint45 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4305D);
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint46 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint47 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint48 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint49 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint50 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint51 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint52 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint53 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint54 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.4295D);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -108,27 +108,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.mesasurementsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox6 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox8 = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label28 = new System.Windows.Forms.Label();
@@ -162,8 +144,13 @@
             this.listBox6 = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -177,33 +164,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -218,7 +183,7 @@
             this.groupBox3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.mesasurementsTableLayoutPanel.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -462,7 +427,7 @@
             this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox2.ForeColor = System.Drawing.Color.Peru;
+            this.listBox2.ForeColor = System.Drawing.Color.Red;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 16;
             this.listBox2.Items.AddRange(new object[] {
@@ -497,203 +462,40 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.mesasurementsTableLayoutPanel);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Controls.Add(this.tableLayoutPanel3);
             this.groupBox1.Location = new System.Drawing.Point(16, 109);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(892, 423);
+            this.groupBox1.Size = new System.Drawing.Size(892, 108);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
-            // mesasurementsTableLayoutPanel
+            // tableLayoutPanel1
             // 
-            this.mesasurementsTableLayoutPanel.AutoScroll = true;
-            this.mesasurementsTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.mesasurementsTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.mesasurementsTableLayoutPanel.ColumnCount = 3;
-            this.mesasurementsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.mesasurementsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.mesasurementsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.maskedTextBox7, 1, 6);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.maskedTextBox6, 1, 5);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.maskedTextBox5, 1, 4);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.maskedTextBox4, 1, 3);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.maskedTextBox3, 1, 2);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.maskedTextBox2, 1, 1);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label2, 0, 0);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label3, 0, 1);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label4, 0, 2);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label5, 0, 3);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label7, 0, 5);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label8, 0, 6);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.maskedTextBox1, 1, 0);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.maskedTextBox8, 2, 0);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label1, 2, 1);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label10, 2, 2);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label11, 2, 3);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label12, 2, 4);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label13, 2, 5);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label14, 2, 6);
-            this.mesasurementsTableLayoutPanel.Controls.Add(this.label6, 0, 4);
-            this.mesasurementsTableLayoutPanel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.mesasurementsTableLayoutPanel.Location = new System.Drawing.Point(0, 53);
-            this.mesasurementsTableLayoutPanel.Name = "mesasurementsTableLayoutPanel";
-            this.mesasurementsTableLayoutPanel.RowCount = 7;
-            this.mesasurementsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.mesasurementsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.mesasurementsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.mesasurementsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.mesasurementsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.mesasurementsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.mesasurementsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.mesasurementsTableLayoutPanel.Size = new System.Drawing.Size(892, 370);
-            this.mesasurementsTableLayoutPanel.TabIndex = 1;
-            this.mesasurementsTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
-            // 
-            // maskedTextBox7
-            // 
-            this.maskedTextBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox7.BackColor = System.Drawing.Color.SlateGray;
-            this.maskedTextBox7.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.maskedTextBox7.Location = new System.Drawing.Point(340, 328);
-            this.maskedTextBox7.Name = "maskedTextBox7";
-            this.maskedTextBox7.Size = new System.Drawing.Size(211, 26);
-            this.maskedTextBox7.TabIndex = 13;
-            this.maskedTextBox7.Text = "( ENTER ACTUAL HERE )";
-            this.maskedTextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // maskedTextBox6
-            // 
-            this.maskedTextBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox6.BackColor = System.Drawing.Color.SlateGray;
-            this.maskedTextBox6.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.maskedTextBox6.Location = new System.Drawing.Point(340, 273);
-            this.maskedTextBox6.Name = "maskedTextBox6";
-            this.maskedTextBox6.Size = new System.Drawing.Size(211, 26);
-            this.maskedTextBox6.TabIndex = 12;
-            this.maskedTextBox6.Text = "( ENTER ACTUAL HERE )";
-            this.maskedTextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // maskedTextBox5
-            // 
-            this.maskedTextBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox5.BackColor = System.Drawing.Color.SlateGray;
-            this.maskedTextBox5.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.maskedTextBox5.Location = new System.Drawing.Point(340, 221);
-            this.maskedTextBox5.Name = "maskedTextBox5";
-            this.maskedTextBox5.Size = new System.Drawing.Size(211, 26);
-            this.maskedTextBox5.TabIndex = 11;
-            this.maskedTextBox5.Text = "( ENTER ACTUAL HERE )";
-            this.maskedTextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // maskedTextBox4
-            // 
-            this.maskedTextBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox4.BackColor = System.Drawing.Color.SlateGray;
-            this.maskedTextBox4.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.maskedTextBox4.Location = new System.Drawing.Point(340, 169);
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.PromptChar = '2';
-            this.maskedTextBox4.Size = new System.Drawing.Size(211, 26);
-            this.maskedTextBox4.TabIndex = 10;
-            this.maskedTextBox4.Text = "( ENTER ACTUAL HERE)";
-            this.maskedTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox3.BackColor = System.Drawing.Color.SlateGray;
-            this.maskedTextBox3.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.maskedTextBox3.Location = new System.Drawing.Point(340, 117);
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(211, 26);
-            this.maskedTextBox3.TabIndex = 9;
-            this.maskedTextBox3.Text = "( ENTER ACTUAL HERE )";
-            this.maskedTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox2.BackColor = System.Drawing.Color.SlateGray;
-            this.maskedTextBox2.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.maskedTextBox2.Location = new System.Drawing.Point(340, 65);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(211, 26);
-            this.maskedTextBox2.TabIndex = 8;
-            this.maskedTextBox2.Text = "( ENTER ACTUAL HERE )";
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(68, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "LINEAR - .500 ± .005";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(68, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 19);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "LINEAR - .500 ± .005";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(64, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 19);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "M.O.W. -  .2685  ± .001";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(38, 173);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(222, 19);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "FILLET RADIUS - .030 ± .010";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(82, 277);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 19);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "ANGLE - 30° ± 1°";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(37, 331);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(224, 19);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "SURFACE FINISH 8uin. MAX";
+            this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.5578F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.2211F));
+            this.tableLayoutPanel1.Controls.Add(this.maskedTextBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.maskedTextBox5, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
+            this.tableLayoutPanel1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 53);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(892, 53);
+            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // maskedTextBox1
             // 
@@ -704,99 +506,33 @@
             this.maskedTextBox1.Location = new System.Drawing.Point(340, 13);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(211, 26);
-            this.maskedTextBox1.TabIndex = 7;
+            this.maskedTextBox1.TabIndex = 12;
             this.maskedTextBox1.Text = "( ENTER ACTUAL HERE )";
             this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // maskedTextBox8
+            // maskedTextBox5
             // 
-            this.maskedTextBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox8.BackColor = System.Drawing.Color.SlateGray;
-            this.maskedTextBox8.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.maskedTextBox8.Location = new System.Drawing.Point(623, 13);
-            this.maskedTextBox8.Name = "maskedTextBox8";
-            this.maskedTextBox8.Size = new System.Drawing.Size(240, 26);
-            this.maskedTextBox8.TabIndex = 15;
-            this.maskedTextBox8.Text = "( ENTER TOOL USED HERE )";
-            this.maskedTextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(653, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 19);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "MOLD; COMPARATOR";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(713, 121);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 19);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "1\" MIC";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(681, 173);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 19);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "COMPARATOR";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(713, 225);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(59, 19);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "1\" MIC";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(673, 277);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(140, 19);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "CHAMFER GAGE";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(674, 331);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(137, 19);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "PROFILOMETER";
+            this.maskedTextBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.maskedTextBox5.BackColor = System.Drawing.Color.SlateGray;
+            this.maskedTextBox5.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox5.ForeColor = System.Drawing.Color.Gainsboro;
+            this.maskedTextBox5.Location = new System.Drawing.Point(637, 13);
+            this.maskedTextBox5.Name = "maskedTextBox5";
+            this.maskedTextBox5.Size = new System.Drawing.Size(211, 26);
+            this.maskedTextBox5.TabIndex = 11;
+            this.maskedTextBox5.Text = "( ENTER SERIAL HERE )";
+            this.maskedTextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 215);
+            this.label6.Location = new System.Drawing.Point(51, 17);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(251, 38);
+            this.label6.Size = new System.Drawing.Size(195, 19);
             this.label6.TabIndex = 4;
-            this.label6.Text = "DIAMETER ø.430 ± .0005 (100% INSPECT)";
+            this.label6.Text = "DIAMETER ø.430 ± .0005";
             // 
             // tableLayoutPanel3
             // 
@@ -868,87 +604,87 @@
             this.chart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.chart2.BorderlineColor = System.Drawing.Color.Gainsboro;
             this.chart2.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea3.AxisX.IsLabelAutoFit = false;
-            chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea3.AxisX.TitleForeColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisY.Interval = 0.0005D;
-            chartArea3.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea3.AxisY.IsLabelAutoFit = false;
-            chartArea3.AxisY.IsStartedFromZero = false;
-            chartArea3.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisY.Maximum = 0.431D;
-            chartArea3.AxisY.Minimum = 0.429D;
-            chartArea3.AxisY.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea3.AxisY.TitleFont = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea3.AxisY.TitleForeColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisY2.ScaleView.Size = 0.4D;
-            chartArea3.BackColor = System.Drawing.Color.Gray;
-            chartArea3.InnerPlotPosition.Auto = false;
-            chartArea3.InnerPlotPosition.Height = 77.99202F;
-            chartArea3.InnerPlotPosition.Width = 90F;
-            chartArea3.InnerPlotPosition.X = 10F;
-            chartArea3.InnerPlotPosition.Y = 5.58511F;
-            chartArea3.Name = "ChartArea1";
-            chartArea3.Position.Auto = false;
-            chartArea3.Position.Height = 94F;
-            chartArea3.Position.Width = 90F;
-            chartArea3.Position.X = 3F;
-            chartArea3.Position.Y = 3F;
-            this.chart2.ChartAreas.Add(chartArea3);
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.TitleForeColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY.Interval = 0.0005D;
+            chartArea1.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.IsStartedFromZero = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY.Maximum = 0.431D;
+            chartArea1.AxisY.Minimum = 0.429D;
+            chartArea1.AxisY.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY2.ScaleView.Size = 0.4D;
+            chartArea1.BackColor = System.Drawing.Color.Gray;
+            chartArea1.InnerPlotPosition.Auto = false;
+            chartArea1.InnerPlotPosition.Height = 77.99202F;
+            chartArea1.InnerPlotPosition.Width = 90F;
+            chartArea1.InnerPlotPosition.X = 10F;
+            chartArea1.InnerPlotPosition.Y = 5.58511F;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 94F;
+            chartArea1.Position.Width = 90F;
+            chartArea1.Position.X = 3F;
+            chartArea1.Position.Y = 3F;
+            this.chart2.ChartAreas.Add(chartArea1);
             this.chart2.Location = new System.Drawing.Point(450, 555);
             this.chart2.Name = "chart2";
-            series7.BorderWidth = 5;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Color = System.Drawing.Color.MediumSeaGreen;
-            series7.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series7.Name = "Dimension Actuals";
-            series7.Points.Add(dataPoint55);
-            series7.Points.Add(dataPoint56);
-            series7.Points.Add(dataPoint57);
-            series7.Points.Add(dataPoint58);
-            series7.Points.Add(dataPoint59);
-            series7.Points.Add(dataPoint60);
-            series7.Points.Add(dataPoint61);
-            series7.Points.Add(dataPoint62);
-            series7.Points.Add(dataPoint63);
-            series7.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
-            series8.BorderColor = System.Drawing.Color.Red;
-            series8.BorderWidth = 3;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            series8.Color = System.Drawing.Color.Peru;
-            series8.IsVisibleInLegend = false;
-            series8.Name = "Series2";
-            series8.Points.Add(dataPoint64);
-            series8.Points.Add(dataPoint65);
-            series8.Points.Add(dataPoint66);
-            series8.Points.Add(dataPoint67);
-            series8.Points.Add(dataPoint68);
-            series8.Points.Add(dataPoint69);
-            series8.Points.Add(dataPoint70);
-            series8.Points.Add(dataPoint71);
-            series8.Points.Add(dataPoint72);
-            series9.BorderWidth = 3;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Color = System.Drawing.Color.Peru;
-            series9.Name = "Dimension Limits";
-            series9.Points.Add(dataPoint73);
-            series9.Points.Add(dataPoint74);
-            series9.Points.Add(dataPoint75);
-            series9.Points.Add(dataPoint76);
-            series9.Points.Add(dataPoint77);
-            series9.Points.Add(dataPoint78);
-            series9.Points.Add(dataPoint79);
-            series9.Points.Add(dataPoint80);
-            series9.Points.Add(dataPoint81);
-            this.chart2.Series.Add(series7);
-            this.chart2.Series.Add(series8);
-            this.chart2.Series.Add(series9);
+            series1.BorderWidth = 5;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series1.Color = System.Drawing.Color.MediumSeaGreen;
+            series1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Name = "Dimension Actuals";
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            series1.Points.Add(dataPoint3);
+            series1.Points.Add(dataPoint4);
+            series1.Points.Add(dataPoint5);
+            series1.Points.Add(dataPoint6);
+            series1.Points.Add(dataPoint7);
+            series1.Points.Add(dataPoint8);
+            series1.Points.Add(dataPoint9);
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
+            series2.BorderColor = System.Drawing.Color.Red;
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series2.Color = System.Drawing.Color.Red;
+            series2.IsVisibleInLegend = false;
+            series2.Name = "Series2";
+            series2.Points.Add(dataPoint10);
+            series2.Points.Add(dataPoint11);
+            series2.Points.Add(dataPoint12);
+            series2.Points.Add(dataPoint13);
+            series2.Points.Add(dataPoint14);
+            series2.Points.Add(dataPoint15);
+            series2.Points.Add(dataPoint16);
+            series2.Points.Add(dataPoint17);
+            series2.Points.Add(dataPoint18);
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Color = System.Drawing.Color.Red;
+            series3.Name = "Dimension Limits";
+            series3.Points.Add(dataPoint19);
+            series3.Points.Add(dataPoint20);
+            series3.Points.Add(dataPoint21);
+            series3.Points.Add(dataPoint22);
+            series3.Points.Add(dataPoint23);
+            series3.Points.Add(dataPoint24);
+            series3.Points.Add(dataPoint25);
+            series3.Points.Add(dataPoint26);
+            series3.Points.Add(dataPoint27);
+            this.chart2.Series.Add(series1);
+            this.chart2.Series.Add(series2);
+            this.chart2.Series.Add(series3);
             this.chart2.Size = new System.Drawing.Size(457, 147);
             this.chart2.TabIndex = 9;
             this.chart2.Text = "chart2";
@@ -964,7 +700,7 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.BackColor = System.Drawing.Color.SeaGreen;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -987,7 +723,7 @@
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.Color.SeaGreen;
+            this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1162,90 +898,90 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            chartArea4.AxisX.IsLabelAutoFit = false;
-            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisX.TitleForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY.Interval = 0.0001D;
-            chartArea4.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea4.AxisY.IsLabelAutoFit = false;
-            chartArea4.AxisY.IsStartedFromZero = false;
-            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY.Maximum = 0.431D;
-            chartArea4.AxisY.Minimum = 0.429D;
-            chartArea4.AxisY.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisY.TitleForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY2.ScaleView.Size = 0.4D;
-            chartArea4.BackColor = System.Drawing.Color.Gray;
-            chartArea4.Name = "ChartArea1";
-            chartArea4.Position.Auto = false;
-            chartArea4.Position.Height = 94F;
-            chartArea4.Position.Width = 76.29412F;
-            chartArea4.Position.X = 3F;
-            chartArea4.Position.Y = 3F;
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend2.BackColor = System.Drawing.Color.Silver;
-            legend2.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea2.AxisX.IsLabelAutoFit = false;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY.Interval = 0.0001D;
+            chartArea2.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea2.AxisY.IsLabelAutoFit = false;
+            chartArea2.AxisY.IsStartedFromZero = false;
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY.Maximum = 0.431D;
+            chartArea2.AxisY.Minimum = 0.429D;
+            chartArea2.AxisY.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.TitleForeColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY2.ScaleView.Size = 0.4D;
+            chartArea2.BackColor = System.Drawing.Color.Gray;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 94F;
+            chartArea2.Position.Width = 76.29412F;
+            chartArea2.Position.X = 3F;
+            chartArea2.Position.Y = 3F;
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend1.BackColor = System.Drawing.Color.Silver;
+            legend1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(15, 125);
             this.chart1.Name = "chart1";
-            series10.BorderWidth = 5;
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Color = System.Drawing.Color.MediumSeaGreen;
-            series10.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series10.Legend = "Legend1";
-            series10.Name = "Dimension Actuals";
-            series10.Points.Add(dataPoint82);
-            series10.Points.Add(dataPoint83);
-            series10.Points.Add(dataPoint84);
-            series10.Points.Add(dataPoint85);
-            series10.Points.Add(dataPoint86);
-            series10.Points.Add(dataPoint87);
-            series10.Points.Add(dataPoint88);
-            series10.Points.Add(dataPoint89);
-            series10.Points.Add(dataPoint90);
-            series10.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
-            series11.BorderColor = System.Drawing.Color.Red;
-            series11.BorderWidth = 3;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            series11.Color = System.Drawing.Color.Peru;
-            series11.IsVisibleInLegend = false;
-            series11.Legend = "Legend1";
-            series11.Name = "Series2";
-            series11.Points.Add(dataPoint91);
-            series11.Points.Add(dataPoint92);
-            series11.Points.Add(dataPoint93);
-            series11.Points.Add(dataPoint94);
-            series11.Points.Add(dataPoint95);
-            series11.Points.Add(dataPoint96);
-            series11.Points.Add(dataPoint97);
-            series11.Points.Add(dataPoint98);
-            series11.Points.Add(dataPoint99);
-            series12.BorderWidth = 3;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Color = System.Drawing.Color.Peru;
-            series12.Legend = "Legend1";
-            series12.Name = "Dimension Limits";
-            series12.Points.Add(dataPoint100);
-            series12.Points.Add(dataPoint101);
-            series12.Points.Add(dataPoint102);
-            series12.Points.Add(dataPoint103);
-            series12.Points.Add(dataPoint104);
-            series12.Points.Add(dataPoint105);
-            series12.Points.Add(dataPoint106);
-            series12.Points.Add(dataPoint107);
-            series12.Points.Add(dataPoint108);
-            this.chart1.Series.Add(series10);
-            this.chart1.Series.Add(series11);
-            this.chart1.Series.Add(series12);
+            series4.BorderWidth = 5;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series4.Color = System.Drawing.Color.MediumSeaGreen;
+            series4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series4.Legend = "Legend1";
+            series4.Name = "Dimension Actuals";
+            series4.Points.Add(dataPoint28);
+            series4.Points.Add(dataPoint29);
+            series4.Points.Add(dataPoint30);
+            series4.Points.Add(dataPoint31);
+            series4.Points.Add(dataPoint32);
+            series4.Points.Add(dataPoint33);
+            series4.Points.Add(dataPoint34);
+            series4.Points.Add(dataPoint35);
+            series4.Points.Add(dataPoint36);
+            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
+            series5.BorderColor = System.Drawing.Color.Red;
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series5.Color = System.Drawing.Color.Peru;
+            series5.IsVisibleInLegend = false;
+            series5.Legend = "Legend1";
+            series5.Name = "Series2";
+            series5.Points.Add(dataPoint37);
+            series5.Points.Add(dataPoint38);
+            series5.Points.Add(dataPoint39);
+            series5.Points.Add(dataPoint40);
+            series5.Points.Add(dataPoint41);
+            series5.Points.Add(dataPoint42);
+            series5.Points.Add(dataPoint43);
+            series5.Points.Add(dataPoint44);
+            series5.Points.Add(dataPoint45);
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Color = System.Drawing.Color.Peru;
+            series6.Legend = "Legend1";
+            series6.Name = "Dimension Limits";
+            series6.Points.Add(dataPoint46);
+            series6.Points.Add(dataPoint47);
+            series6.Points.Add(dataPoint48);
+            series6.Points.Add(dataPoint49);
+            series6.Points.Add(dataPoint50);
+            series6.Points.Add(dataPoint51);
+            series6.Points.Add(dataPoint52);
+            series6.Points.Add(dataPoint53);
+            series6.Points.Add(dataPoint54);
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(892, 584);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1385,6 +1121,12 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.textBox5);
+            this.groupBox4.Controls.Add(this.textBox8);
+            this.groupBox4.Controls.Add(this.textBox4);
             this.groupBox4.Controls.Add(this.tableLayoutPanel4);
             this.groupBox4.Controls.Add(this.panel6);
             this.groupBox4.Controls.Add(this.panel5);
@@ -1396,16 +1138,87 @@
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label3.Location = new System.Drawing.Point(302, 302);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 19);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "+";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.Location = new System.Drawing.Point(431, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(14, 19);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "-";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label1.Location = new System.Drawing.Point(24, 303);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 19);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "BP DIMENSION:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox5.BackColor = System.Drawing.Color.SlateGray;
+            this.textBox5.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBox5.Location = new System.Drawing.Point(326, 298);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(88, 26);
+            this.textBox5.TabIndex = 18;
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox8.BackColor = System.Drawing.Color.SlateGray;
+            this.textBox8.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBox8.Location = new System.Drawing.Point(163, 298);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(133, 26);
+            this.textBox8.TabIndex = 17;
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox4.BackColor = System.Drawing.Color.SlateGray;
+            this.textBox4.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBox4.Location = new System.Drawing.Point(451, 299);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(72, 26);
+            this.textBox4.TabIndex = 15;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.65425F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.60743F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.88329F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel4.Controls.Add(this.label23, 2, 0);
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.51724F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.48276F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.label24, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label25, 0, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(18, 140);
@@ -1415,25 +1228,13 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(882, 51);
             this.tableLayoutPanel4.TabIndex = 12;
             // 
-            // label23
-            // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label23.Location = new System.Drawing.Point(622, 16);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(90, 19);
-            this.label23.TabIndex = 13;
-            this.label23.Text = "AQL PLAN";
-            // 
             // label24
             // 
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label24.Location = new System.Drawing.Point(459, 16);
+            this.label24.Location = new System.Drawing.Point(575, 16);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(75, 19);
             this.label24.TabIndex = 12;
@@ -1445,7 +1246,7 @@
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label25.Location = new System.Drawing.Point(162, 16);
+            this.label25.Location = new System.Drawing.Point(209, 16);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(85, 19);
             this.label25.TabIndex = 11;
@@ -1524,7 +1325,7 @@
             // button14
             // 
             this.button14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button14.BackColor = System.Drawing.Color.SeaGreen;
+            this.button14.BackColor = System.Drawing.Color.Red;
             this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1547,7 +1348,7 @@
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button3.BackColor = System.Drawing.Color.SeaGreen;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1563,316 +1364,70 @@
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.80135F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.20202F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.74298F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.25365F));
-            this.tableLayoutPanel2.Controls.Add(this.button5, 3, 6);
-            this.tableLayoutPanel2.Controls.Add(this.label40, 1, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label39, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label38, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label37, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label36, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label35, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label34, 2, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label33, 2, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label31, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label18, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox5, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.label17, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label19, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label20, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label21, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label22, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label29, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.button4, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button6, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button7, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this.button8, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.button9, 3, 4);
-            this.tableLayoutPanel2.Controls.Add(this.button10, 3, 5);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 2, 6);
-            this.tableLayoutPanel2.Controls.Add(this.label30, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label32, 2, 0);
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.51674F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.90993F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.57334F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.button5, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label38, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label29, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button8, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBox3, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 1);
             this.tableLayoutPanel2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel2.ForeColor = System.Drawing.Color.Gainsboro;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(18, 189);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28509F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28509F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.2851F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.2851F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.2851F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.2851F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28939F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(882, 342);
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.99249F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00751F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(882, 92);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // button5
             // 
             this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.BackColor = System.Drawing.Color.SeaGreen;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(780, 299);
+            this.button5.Location = new System.Drawing.Point(765, 53);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(76, 31);
             this.button5.TabIndex = 14;
             this.button5.Text = "ENTER";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // label40
-            // 
-            this.label40.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(491, 255);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(18, 19);
-            this.label40.TabIndex = 25;
-            this.label40.Text = "1";
-            // 
-            // label39
-            // 
-            this.label39.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(491, 207);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(18, 19);
-            this.label39.TabIndex = 25;
-            this.label39.Text = "1";
-            // 
             // label38
             // 
             this.label38.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(491, 159);
+            this.label38.Location = new System.Drawing.Point(606, 13);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(18, 19);
             this.label38.TabIndex = 25;
             this.label38.Text = "1";
             // 
-            // label37
-            // 
-            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(491, 111);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(18, 19);
-            this.label37.TabIndex = 25;
-            this.label37.Text = "1";
-            // 
-            // label36
-            // 
-            this.label36.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(491, 63);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(18, 19);
-            this.label36.TabIndex = 24;
-            this.label36.Text = "1";
-            // 
-            // label35
-            // 
-            this.label35.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(604, 101);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(136, 38);
-            this.label35.TabIndex = 25;
-            this.label35.Text = "ANSI/ASQC Z1.4 \r\nLevel II AQL 4.0";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label34
-            // 
-            this.label34.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(604, 197);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(136, 38);
-            this.label34.TabIndex = 25;
-            this.label34.Text = "ANSI/ASQC Z1.4 \r\nLevel II AQL 4.0";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label33
-            // 
-            this.label33.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(604, 245);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(136, 38);
-            this.label33.TabIndex = 24;
-            this.label33.Text = "ANSI/ASQC Z1.4 \r\nLevel II AQL 1.5";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label31
-            // 
-            this.label31.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(604, 53);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(136, 38);
-            this.label31.TabIndex = 23;
-            this.label31.Text = "ANSI/ASQC Z1.4 \r\nLevel II AQL 1.5";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label31.Click += new System.EventHandler(this.label31_Click);
-            // 
-            // label18
-            // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(491, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(18, 19);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "2";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.BackColor = System.Drawing.Color.SlateGray;
-            this.textBox5.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox5.Location = new System.Drawing.Point(47, 302);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(318, 26);
-            this.textBox5.TabIndex = 23;
-            this.textBox5.Text = "( ENTER FEATURE AND TOLERANCE )";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label17
-            // 
-            this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(125, 15);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(161, 19);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "LINEAR - .500 ± .005";
-            // 
-            // label19
-            // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(121, 63);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(169, 19);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "M.O.W. -  .2685  ± .001";
-            // 
-            // label20
-            // 
-            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(95, 111);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(222, 19);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "FILLET RADIUS - .030 ± .010";
-            // 
-            // label21
-            // 
-            this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(139, 207);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(134, 19);
-            this.label21.TabIndex = 5;
-            this.label21.Text = "ANGLE - 30° ± 1°";
-            // 
-            // label22
-            // 
-            this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(94, 255);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(224, 19);
-            this.label22.TabIndex = 6;
-            this.label22.Text = "SURFACE FINISH 8uin. MAX";
-            // 
             // label29
             // 
             this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(108, 159);
+            this.label29.Location = new System.Drawing.Point(160, 13);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(195, 19);
+            this.label29.Size = new System.Drawing.Size(185, 19);
             this.label29.TabIndex = 4;
-            this.label29.Text = "DIAMETER ø.430 ± .0005";
-            // 
-            // button4
-            // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.BackColor = System.Drawing.Color.Peru;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(780, 9);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 31);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "EDIT";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button6.BackColor = System.Drawing.Color.Peru;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(780, 57);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(76, 31);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "EDIT";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button7.BackColor = System.Drawing.Color.Peru;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button7.Location = new System.Drawing.Point(780, 105);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(76, 31);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "EDIT";
-            this.button7.UseVisualStyleBackColor = false;
+            this.label29.Text = "DIAMETER .430 ± .0005";
             // 
             // button8
             // 
             this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button8.BackColor = System.Drawing.Color.Peru;
+            this.button8.BackColor = System.Drawing.Color.Red;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Location = new System.Drawing.Point(780, 153);
+            this.button8.Location = new System.Drawing.Point(765, 7);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(76, 31);
             this.button8.TabIndex = 11;
             this.button8.Text = "EDIT";
             this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button9.BackColor = System.Drawing.Color.Peru;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button9.Location = new System.Drawing.Point(780, 201);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(76, 31);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "EDIT";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button10.BackColor = System.Drawing.Color.Peru;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button10.Location = new System.Drawing.Point(780, 249);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(76, 31);
-            this.button10.TabIndex = 13;
-            this.button10.Text = "EDIT";
-            this.button10.UseVisualStyleBackColor = false;
             // 
             // textBox3
             // 
@@ -1880,46 +1435,22 @@
             this.textBox3.BackColor = System.Drawing.Color.SlateGray;
             this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox3.Location = new System.Drawing.Point(419, 302);
+            this.textBox3.Location = new System.Drawing.Point(533, 55);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(163, 26);
             this.textBox3.TabIndex = 14;
             this.textBox3.Text = "( ENTER PLACES )";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox4
+            // comboBox1
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.BackColor = System.Drawing.Color.SlateGray;
-            this.textBox4.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox4.Location = new System.Drawing.Point(600, 302);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(144, 26);
-            this.textBox4.TabIndex = 15;
-            this.textBox4.Text = "( ENTER AQL )";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label30
-            // 
-            this.label30.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(608, 159);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(127, 19);
-            this.label30.TabIndex = 22;
-            this.label30.Text = "100% INSPECT\r\n";
-            // 
-            // label32
-            // 
-            this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(604, 5);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(136, 38);
-            this.label32.TabIndex = 24;
-            this.label32.Text = "ANSI/ASQC Z1.4 \r\nLevel II AQL 4.0";
-            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.BackColor = System.Drawing.Color.SlateGray;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(192, 58);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 27);
+            this.comboBox1.TabIndex = 24;
             // 
             // Form4
             // 
@@ -1946,8 +1477,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.mesasurementsTableLayoutPanel.ResumeLayout(false);
-            this.mesasurementsTableLayoutPanel.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -1975,6 +1506,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -2000,60 +1532,16 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TableLayoutPanel mesasurementsTableLayoutPanel;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox7;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox8;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -2080,7 +1568,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Panel panel6;
@@ -2103,5 +1590,15 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

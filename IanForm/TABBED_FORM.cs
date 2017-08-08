@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Feature_Inspection
+namespace Feature_Inspection_Form
 {
     public partial class Form4 : Form
     {
         public Form4()
         {
             InitializeComponent();
-            
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)

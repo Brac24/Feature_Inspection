@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feature_Inspection", "Featu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlternateUITest", "..\AlternateUITest\AlternateUITest.csproj", "{150D3CE7-2862-4835-877B-281BECDE04CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feature Inspection Form", "T:\users\Christian Bracamontes\Feature Inspection Form\Feature Inspection Form\Feature Inspection Form.csproj", "{4134EB8D-342B-4765-9BCA-B9EDC6FA209D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feature Inspection Form", "T:\users\Christian Bracamontes\Feature Inspection Form\NEW\Feature Inspection Form\Feature Inspection Form.csproj", "{4134EB8D-342B-4765-9BCA-B9EDC6FA209D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

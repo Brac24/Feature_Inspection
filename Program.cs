@@ -18,7 +18,8 @@ namespace Feature_Inspection
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AlternateUI());
-           // Application.Run(new TweakUI());
+            Application.Run(new Form4());
+            
           
 
 
