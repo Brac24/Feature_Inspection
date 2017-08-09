@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Feature_Inspection
 {
+    [System.ComponentModel.ComplexBindingProperties("DataSource", "DataMember")]
     public partial class MeasurementTableControl : UserControl
     {
+        
         public MeasurementTableControl()
         {
             InitializeComponent();
