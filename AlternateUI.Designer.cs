@@ -104,7 +104,7 @@
             this.dataListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataListView1.BackColor = System.Drawing.SystemColors.Info;
+            this.dataListView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.dataListView1.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClickAlways;
             this.dataListView1.CellEditEnterChangesRows = true;
             this.dataListView1.CellEditUseWholeCell = false;
@@ -113,6 +113,8 @@
             this.tableLayoutPanel1.SetColumnSpan(this.dataListView1, 4);
             this.dataListView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataListView1.DataSource = null;
+            this.dataListView1.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataListView1.ForeColor = System.Drawing.Color.Gainsboro;
             this.dataListView1.Location = new System.Drawing.Point(152, 3);
             this.dataListView1.Name = "dataListView1";
             this.tableLayoutPanel1.SetRowSpan(this.dataListView1, 6);

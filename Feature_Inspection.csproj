@@ -127,12 +127,6 @@
     <Compile Include="IanForm\TABBED_FORM.Designer.cs">
       <DependentUpon>TABBED_FORM.cs</DependentUpon>
     </Compile>
-    <Compile Include="MeasurementTableControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MeasurementTableControl.Designer.cs">
-      <DependentUpon>MeasurementTableControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="messagePrompt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,9 +158,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IanForm\TABBED_FORM.resx">
       <DependentUpon>TABBED_FORM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MeasurementTableControl.resx">
-      <DependentUpon>MeasurementTableControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="messagePrompt.resx">
       <DependentUpon>messagePrompt.cs</DependentUpon>
