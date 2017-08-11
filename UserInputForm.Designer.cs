@@ -1,4 +1,5 @@
-﻿namespace Feature_Inspection
+﻿using DataGridViewNumericUpDownElements;
+namespace Feature_Inspection
 {
     partial class UserInputForm
     {

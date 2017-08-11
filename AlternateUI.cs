@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Data.Odbc;
 using BrightIdeasSoftware;
 /*ALL TABLES REFER TO THE ATI_FeatureInspection Database */
-//THIS IS THE similarWithDifferentDataTables BRANCH
 namespace Feature_Inspection
 {
 
