@@ -8,5 +8,13 @@ namespace Feature_Inspection
 {
     class Part
     {
+        IList<Feature> Features { get; set; }
+
+        bool ShouldInspect { get; set; }
+
+        bool OutOfTolerance { get; set; }
+
+        bool InProgress { get; set; }
+
     }
 }
