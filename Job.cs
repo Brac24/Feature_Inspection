@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Feature_Inspection
 {
-    class FeatureData
+    class Job
     {
-
     }
 }

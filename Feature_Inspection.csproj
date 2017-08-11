@@ -118,9 +118,6 @@
     <Compile Include="DataGridViewNumericUpDownEditingControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FeatureData.cs" />
-    <Compile Include="FeatureInfo.cs" />
-    <Compile Include="FeatureParamStruct.cs" />
     <Compile Include="IanForm\TABBED_FORM.cs">
       <SubType>Form</SubType>
     </Compile>

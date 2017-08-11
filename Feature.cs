@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Feature_Inspection
 {
-    struct FeatureParamStruct
+    class Feature
     {
-        public Decimal nominal;
-        public Decimal plus;
-        public Decimal minus;
     }
 }
