@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Feature_Inspection
 {
-    class Job
+    public class Job
     {
+        public Job()
+        {
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Feature_Inspection
 {
-    class Feature
+    public class Feature
     {
         string FeatureType { get; set; }
 
